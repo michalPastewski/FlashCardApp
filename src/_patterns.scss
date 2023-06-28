@@ -1,0 +1,29 @@
+// colors pattern 
+$base-color: #FFFFFF;
+$primary-color: #023047;
+$secondary-color: #FFB703;
+$hover-color: #8ECAE6;
+$action-color: #219EBC;
+$exclamation-button-color: #FB8500;
+
+// gutters, paddings, margins patterns
+$g-extra-small: 1px;
+$g-small: 3px;
+$g-medium: 5px;
+$g-normal: 8px;
+$g-large: 10px;
+$g-extra-large: 13px;
+
+//fonts sizing
+$f-small: 12px;
+$f-normal: 18px;
+$f-large: 24px;
+$f-extra-large: 30px;
+
+// mixins
+@mixin button($background: $base-color, $border: $primary-color) {
+   background-color: $background;
+   color: $border;
+   border: solid 3px $border;
+   border-radius: 8px;
+}
