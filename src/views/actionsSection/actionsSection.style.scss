@@ -1,0 +1,34 @@
+@use '../../variables' as *;
+
+.actions {
+   width: 93vw;
+   padding: $g-medium;
+   display: flex;
+   flex-direction: column;
+   
+   border-radius: $g-medium;
+   background-color: $base-color;
+
+   &__buttons {
+      padding: $g-medium 0 $g-large;
+
+      display: flex;
+      justify-content: space-around;
+      font-size: $f-normal ;
+   }
+}
+
+.add__form {
+   display: flex;
+   flex-direction: column;
+
+   &__buttons {
+      // min-width: 30%;
+      // align-self: end;
+      padding-top: $g-large;
+
+      display: flex;
+      justify-content: space-around;
+
+   }
+}

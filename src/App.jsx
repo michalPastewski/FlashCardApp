@@ -1,20 +1,14 @@
-import './App.css';
-import {TopBar} from './components/topBar/TopBar'
+import './App.scss';
+import { ActionsSection } from './views/actionsSection/ActionsSection';
+import { TopBar } from './views/topBar/TopBar';
 
 function App() {
 
   return (
     <main className='main__container'>
       <TopBar />
-      {/* <section className='top__bar'>
-        <div className='top__bar--logo'>FiszkaApp</div>
-        <div className='top__bar--search'>Search</div>
-      </section> */}
       <section className='content'>
-        <article className='content__menu'>
-          <div>add new word</div>
-          <div>learn</div>
-        </article>
+        <ActionsSection />
         <article className='content__words'>
           <div className='content__words'>Words List</div>
           <div className='content__words--container'>
