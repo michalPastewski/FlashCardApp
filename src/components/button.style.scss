@@ -1,0 +1,49 @@
+@use '../variables' as *;
+
+@mixin button($background: $base-color, $majorColor: $primary-color) {
+      min-width: 100px;
+      min-height: 36px;
+
+      background-color: $background;
+      color: $majorColor;
+      border: solid 2px $majorColor;
+      border-radius: 8px;
+}
+
+// %button {
+//    background-color: $base-color;
+//    color: $primary-color;
+//    border: solid 3px $primary-color;
+//    border-radius: 8px;
+// }
+
+.button {
+  @include button();
+
+  &:hover {
+      background-color: $hover-color;
+   }
+   &:active {
+      // background-color: $action-color;
+      -webkit-box-shadow: inset 0px 0px 19px -6px $primary-color;
+      -moz-box-shadow: inset 0px 0px 19px -6px $primary-color;
+      box-shadow: inset 0px 0px -6px $primary-color;
+   }
+}
+
+
+.secondary-button {
+   @include button($primary-color, $secondary-color);
+}
+
+.submit-button {
+   @include button($exclamation-button-color, $primary-color);
+}
+
+.large-button {
+   width: 45%;
+   padding: $g-large;
+   font-size: $f-normal ;
+}
+
+

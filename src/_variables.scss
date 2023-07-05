@@ -21,9 +21,9 @@ $f-large: 24px;
 $f-extra-large: 30px;
 
 // mixins
-@mixin button($background: $base-color, $border: $primary-color) {
-   background-color: $background;
-   color: $border;
-   border: solid 3px $border;
-   border-radius: 8px;
-}
+// @mixin button($background: $base-color, $border: $primary-color) {
+//    background-color: $background;
+//    color: $border;
+//    border: solid 3px $border;
+//    border-radius: 8px;
+// }
