@@ -1,0 +1,26 @@
+@use '../variables' as *;
+
+.form__input {
+   width: 95%;
+   display: flex;
+   flex-direction: column;
+   
+   &--label {
+      padding-left: $g-medium; 
+      font-size: $f-normal;
+   }
+
+   &--input {
+      padding: $g-small; 
+      font-size: $f-normal;
+      border-style: none none solid none;
+      border-color: $primary-color;
+      border-bottom-width: 1px;
+
+      &:focus {
+         border: solid 2px $secondary-color;
+         border-radius: $g-normal;
+         outline: none;
+      }
+   }
+}

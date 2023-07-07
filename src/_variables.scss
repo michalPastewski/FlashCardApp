@@ -15,15 +15,8 @@ $g-large: 10px;
 $g-extra-large: 13px;
 
 //fonts sizing
-$f-small: 12px;
-$f-normal: 18px;
-$f-large: 24px;
-$f-extra-large: 30px;
-
-// mixins
-// @mixin button($background: $base-color, $border: $primary-color) {
-//    background-color: $background;
-//    color: $border;
-//    border: solid 3px $border;
-//    border-radius: 8px;
-// }
+$f-extra-small: 0.8em;
+$f-small: 1em;
+$f-normal: 1.1em;
+$f-large: 1.5em;
+$f-extra-large: 2em;
