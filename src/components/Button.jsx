@@ -6,7 +6,7 @@ export const Button = ({label, ...otherProps}) => {
          className={
             `button 
             ${otherProps.size === 'large' ? 'large-button' : ""} 
-            ${otherProps.buttonstyle === 'secondary' ? 'secondary-button' : otherProps.buttonstyle === 'submit' ? 'submit-button' : ""}`} 
+            ${otherProps.buttonstyle === 'secondary' ? 'secondary-button' : otherProps.buttonstyle === 'submit' ? 'submit-button' : ""}`}
          {...otherProps}
       >
          {label}

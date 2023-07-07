@@ -24,10 +24,15 @@
       background-color: $hover-color;
    }
    &:active {
-      // background-color: $action-color;
       -webkit-box-shadow: inset 0px 0px 19px -6px $primary-color;
       -moz-box-shadow: inset 0px 0px 19px -6px $primary-color;
       box-shadow: inset 0px 0px -6px $primary-color;
+   }
+
+   &:disabled {
+      background-color: #E8E8E8; 
+      border-color: #aeb1b3;
+      color:#aeb1b3;
    }
 }
 

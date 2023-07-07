@@ -19,13 +19,15 @@
 }
 
 .add__form {
+   margin-top: $g-normal;
    display: flex;
    flex-direction: column;
+   align-items: center;
 
    &__buttons {
-      // min-width: 30%;
-      // align-self: end;
+      width: 230px;
       padding-top: $g-large;
+      align-self: flex-end;
 
       display: flex;
       justify-content: space-around;
