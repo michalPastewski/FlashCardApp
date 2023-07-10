@@ -4,7 +4,7 @@ import { FormInput } from '../../components/FormInput';
 export const AddWordForm = ({ onCancel }) => {
   return (
     <form className="add__form">
-      <FormInput label="new word" type="text" />
+      <FormInput label="new word" type="text" autoFocus />
       <FormInput label="translation" type="text" />
       <FormInput label="synonyms" type="text" />
       <FormInput label="examples" type="text" />
