@@ -10,13 +10,6 @@
       border-radius: 8px;
 }
 
-// %button {
-//    background-color: $base-color;
-//    color: $primary-color;
-//    border: solid 3px $primary-color;
-//    border-radius: 8px;
-// }
-
 .button {
   @include button();
 
@@ -39,6 +32,14 @@
 
 .secondary-button {
    @include button($primary-color, $secondary-color);
+   min-height: 50px;
+   margin: $g-normal;
+
+   font-size: $f-large;
+
+   &:hover {
+      color: $primary-color;
+   }
 }
 
 .submit-button {

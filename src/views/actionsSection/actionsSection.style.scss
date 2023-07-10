@@ -34,3 +34,13 @@
 
    }
 }
+
+.learn__section {
+   padding: $g-extra-large;
+   
+   display: flex;
+   flex-direction: column;
+   
+   background-color: $primary-color;
+   border-radius: $g-medium;
+}
