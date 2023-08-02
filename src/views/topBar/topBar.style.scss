@@ -1,34 +1,38 @@
 @use '../../variables' as *;
 
 .top__bar {
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
+   // display: flex;
+   // align-items: center;
+   // justify-content: space-between;
 
-   min-height: 50px;
+   height: 50px;
    padding: $g-medium $g-extra-large;
 
-   font-size: $f-large;
    color: $secondary-color;
 
    background-color: $primary-color;
 
-   .top__bar--search {
-      margin: 0;
-
-      input {
-         width: 35vw;
-         height: $f-extra-large;
-         padding: $g-large;
-
-         border: solid 2px $secondary-color;
-         border-radius: 8px;
-         color: $primary-color;
-      }
-
-      input::placeholder {
-         opacity: 0.5;
-         color: $primary-color;
+   &--logo {
+      h3 {
+         font-size: $f-large;
       }
    }
+   // .top__bar--search {
+   //    margin: 0;
+
+   //    input {
+   //       width: 35vw;
+   //       height: $f-extra-large;
+   //       padding: $g-large;
+
+   //       border: solid 2px $secondary-color;
+   //       border-radius: 8px;
+   //       color: $primary-color;
+   //    }
+
+   //    input::placeholder {
+   //       opacity: 0.5;
+   //       color: $primary-color;
+   //    }
+   // }
 }

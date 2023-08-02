@@ -2,6 +2,7 @@
 
 .actions {
    width: 93vw;
+// height: 60px;
    padding: $g-medium;
    display: flex;
    flex-direction: column;
@@ -19,7 +20,6 @@
 }
 
 .add__form {
-   margin-top: $g-normal;
    display: flex;
    flex-direction: column;
    align-items: center;

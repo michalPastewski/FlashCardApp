@@ -2,6 +2,7 @@
 
 .form__input {
    width: 95%;
+   margin-top: $g-large;
    display: flex;
    flex-direction: column;
    
@@ -18,8 +19,10 @@
       border-bottom-width: 1px;
 
       &:focus {
-         border: solid 2px $secondary-color;
-         border-radius: $g-normal;
+         box-sizing: border-box;
+
+         border-color: $secondary-color;
+         border-width: 2px;
          outline: none;
       }
    }
