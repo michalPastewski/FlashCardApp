@@ -7,6 +7,10 @@ $action-color: #219EBC;
 $exclamation-button-color: #FB8500;
 $primary-transparency-background-color: rgb(2, 48, 71, 0.3);
 $secondary-transparency-background-color: rgb(255, 255, 255, 0.5);
+$error-color: rgb(250, 29, 0);
+$warning-color: rgb(250, 29, 0, 0.2);
+$success-color: #008945;
+
 
 // gutters, paddings, margins patterns
 $g-extra-small: 1px;
@@ -24,3 +28,8 @@ $f-extra-large: 2em;
 
 // borders
 $border-radius: 5px;
+$button-radius: 3px;
+
+//shadows
+$regular-shadow:  0 0 20px -3px $primary-color;
+$small-shadow:  0 0 10px -3px $primary-color;

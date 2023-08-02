@@ -21,7 +21,7 @@
     justify-content: center;
  
     border-radius: $border-radius;
-    box-shadow: 0 0 20px 5px $primary-color;
+    box-shadow: $regular-shadow;
     background-color: $base-color;
    }
  }

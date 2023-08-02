@@ -1,0 +1,40 @@
+@use '../../variables' as *;
+
+.login__section {
+   padding: $g-extra-large;
+   background-color: $base-color;
+   border-radius: $border-radius;
+   
+   &--header {
+    text-align: center;
+   }
+
+   &--info {
+      margin-top: $g-large;
+      display: flex;
+      flex-direction: column;
+      // justify-content: center;
+      align-items: flex-start;
+      font-size: $f-small;
+   }
+    
+   &--button {
+      margin-left: $g-medium;
+      padding: $g-extra-small $g-small;
+      
+      color: $primary-color;
+      border-radius: $button-radius;
+      box-shadow: $small-shadow;
+
+      &:hover {
+         background-color: $hover-color;
+         color: $primary-color;
+      }
+   }
+
+   &--submit {
+      align-self: flex-end;
+   }
+}
+
+
