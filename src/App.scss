@@ -19,32 +19,6 @@
   }
 }
 
-.modal {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-
-  display: flex;
-  justify-content: center;
-  align-items: start;
-
-  &--item {
-  width: 88vw;
-   min-height: 40vh;
-   margin-top: 10vh;
-   padding: $g-large;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-
-   border-radius: $border-radius;
-   box-shadow: 0 0 20px 5px $primary-color;
-   background-color: $base-color;
-  }
-}
-
 .footer {
   position: absolute;
   bottom: 0;
