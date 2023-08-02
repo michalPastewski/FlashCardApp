@@ -1,0 +1,54 @@
+@use '../../variables' as *;
+
+.words {
+   width: 93vw;
+   padding: $g-medium;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+
+   border-radius: $g-medium;
+   background-color: $base-color;
+
+   &--header {
+      width: 70vw;
+      padding: $g-large 0;
+      border-radius: $g-medium;
+
+      color: $secondary-color;
+      font-size: $f-large;
+      text-align: center;
+      background-color: $primary-color;
+
+      span {
+         display: inline-block;
+         width: 70%;
+         border-bottom: solid 2px $secondary-color;
+      }
+   }
+
+   &--container {
+      padding: $g-extra-large $g-medium $g-medium;
+
+      display: grid;
+      grid-template-areas: 'a a';
+      gap: $g-large;
+      grid-auto-rows: 50px;
+      grid-template-columns: 42vw 42vw;
+   }
+    &--card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border: solid 2px $primary-color;
+      border-radius: $g-medium;
+
+      color:$primary-color;
+      font-size: $f-normal;
+
+      &:hover {
+         background-color: $hover-color;
+      }
+    }
+}
