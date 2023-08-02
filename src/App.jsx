@@ -1,25 +1,21 @@
+import { Route, Routes } from 'react-router-dom';
 import './App.scss';
-import { ActionsSection } from './views/actionsSection/ActionsSection';
+import { LearnSection } from './views/actionsSection/LearnSection';
+import { Home } from './views/home/Home';
 import { TopBar } from './views/topBar/TopBar';
+import { WordSection } from './views/wordSection/WordSection';
 
 function App() {
-
   return (
-    <main className='main__container'>
+    <main className="main__container">
       <TopBar />
-      <section className='content'>
-        <ActionsSection />
-        <article className='content__words'>
-          <div className='content__words'>Words List</div>
-          <div className='content__words--container'>
-            <div className='content__words--item'>word 1</div>
-            <div className='content__words--item'>word 2</div>
-            <div className='content__words--item'>word 3</div>
-          </div>
-        </article>
-      </section>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/learn" element={<LearnSection />} />
+      </Routes>
+      <footer className="footer">Footer</footer>
     </main>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -49,7 +49,15 @@
 .large-button {
    width: 45%;
    padding: $g-large;
-   font-size: $f-normal ;
+   font-size: $f-normal;
+
+   display: flex;
+   justify-content: center;
+
+   span {
+      text-align: center;
+      font-size: $f-normal;
+   }
 }
 
 
