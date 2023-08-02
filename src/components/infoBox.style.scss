@@ -1,0 +1,15 @@
+@use '../variables' as *;
+
+.info__box {
+   margin-top: calc($g-extra-large * 2);
+   padding: $g-normal;
+   text-align: center;
+   
+   border-radius: $border-radius;
+   box-shadow: $regular-shadow;
+}
+
+.info__box.warning {
+   background-color: $warning-color;
+   border: solid 3px $warning-color;
+}
