@@ -1,4 +1,5 @@
-import '../App.scss';
+import './modal.style.scss';
+
 
 export const Modal = ({ children }) => {
   return (
