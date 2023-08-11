@@ -1,6 +1,7 @@
 @use '../../variables' as *;
 
 .login__section {
+   width: min(455px, 93vw);
    padding: $g-extra-large;
    background-color: $base-color;
    border-radius: $border-radius;
@@ -33,6 +34,9 @@
    }
 
    &--submit {
+      display: flex;
+      gap: $g-extra-large;
+      
       align-self: flex-end;
    }
 }

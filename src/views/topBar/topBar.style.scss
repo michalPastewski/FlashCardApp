@@ -1,9 +1,9 @@
 @use '../../variables' as *;
 
 .top__bar {
-   // display: flex;
-   // align-items: center;
-   // justify-content: space-between;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
 
    height: 50px;
    padding: $g-medium $g-extra-large;

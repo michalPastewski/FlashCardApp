@@ -1,14 +1,17 @@
-#TODO#
+# TODO #
+### IMPROVEMENTS ###
+[ ] improve the InfoBox component (includes css for success and info);
 
+[ ]   
 ## MUST HAVE
 
-1. Move the 'add new world' section to the separate modal.
+1. ~~Move the 'add new world' section to the separate modal.~~    
    1.1 change examples item to textarea tag.
 
-2. The 'learn section' create in the separate view - use routing.
+2. ~~The 'learn section' create in the separate view - use routing.~~
    2.2 Individual learn cases should be separated to new views - use routing.
 
-3. Create the login page and logic to handle it.
+3. ~~Create the login page and logic to handle it.~~
 
 4. Change media queries to full screen view after 950px width.
 
