@@ -1,6 +1,6 @@
-import { Button } from '../../components/Button';
-import { FormInput } from '../../components/FormInput';
-import {Modal} from '../../components/Modal'
+import { Button } from '../../../../components/Button';
+import { FormInput } from '../../../../components/FormInput';
+import { Modal } from '../../../../components/Modal';
 
 export const AddWordForm = ({ onCancel }) => {
   return (
@@ -16,7 +16,7 @@ export const AddWordForm = ({ onCancel }) => {
             type="button"
             onClick={() => onCancel(false)}
           />
-          <Button label="add" buttonstyle="submit" />
+          <Button label="add" appearance="submit" />
         </div>
       </form>
     </Modal>

@@ -4,6 +4,10 @@
       min-width: 100px;
       min-height: 36px;
 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
       background-color: $background;
       color: $majorColor;
       border: solid 2px $majorColor;
@@ -14,7 +18,8 @@
   @include button();
 
   &:hover {
-      background-color: $hover-color;
+      background-color: $primary-color;
+      color: $secondary-color;
    }
    &:active {
       -webkit-box-shadow: inset 0px 0px 19px -6px $primary-color;
@@ -44,6 +49,15 @@
 
 .submit-button {
    @include button($exclamation-button-color, $primary-color);
+}
+
+.revers-button {
+   @include button($primary-color, $secondary-color);
+
+   &:hover {
+      background-color: $hover-color;
+      color:$primary-color;
+   }
 }
 
 .large-button {

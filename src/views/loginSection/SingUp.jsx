@@ -1,14 +1,16 @@
 import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '../../components/Button';
 import { FormInput } from '../../components/FormInput';
-import {useAuth} from '../../contexts/AuthProvider';
+import { useAuth } from '../../contexts/AuthProvider';
 // import { InfoBox } from '../../components/InfoBox';
 
 import './loginSection.style.scss';
 
 export const SignUp = ({ onBack }) => {
-  const {createAuthUserWithEmailAndPassword} = useAuth();
-  
+  const { createAuthUserWithEmailAndPassword } = useAuth();
+  const navigate = useNavigate();
+
   const emailRef = useRef();
   const passwordRef = useRef();
   const confirmPasswordRef = useRef();
@@ -18,7 +20,7 @@ export const SignUp = ({ onBack }) => {
 
     if (passwordRef.current.value !== confirmPasswordRef.current.value) {
       // TODO add handle for infoBox with message what went wrong.
-      console.log('Registration failed');
+      console.warn('Registration failed- password not pass');
       return;
     }
 
@@ -27,9 +29,11 @@ export const SignUp = ({ onBack }) => {
         emailRef.current.value,
         passwordRef.current.value
       );
+      console.info('User was signed up successfully');
       emailRef.current.value = '';
       passwordRef.current.value = '';
       confirmPasswordRef.current.value = '';
+      navigate('/');
     } catch (error) {
       console.error('ERROR', error.message);
     }
@@ -64,11 +68,11 @@ export const SignUp = ({ onBack }) => {
           <div className="login__section--submit">
             <Button
               label="Back"
-              buttonstyle=""
+              // appearance=""
               type="button"
               onClick={() => onBack(true)}
             />
-            <Button label="Sing up" buttonstyle="submit" type="submit" />
+            <Button label="Sing up" appearance="submit" type="submit" />
           </div>
         </div>
       </form>

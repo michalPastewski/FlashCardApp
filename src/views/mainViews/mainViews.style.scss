@@ -1,0 +1,24 @@
+@use '../../variables' as *;
+.main__view {
+   &--loading {
+      padding: $g-extra-large;   
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: $base_color;
+      border-radius: $border-radius;
+   
+       h2 {
+         font-size: $f-large;
+         text-align: center;
+       }
+   }
+   &--buttons{
+      margin-top: $g-extra-large;
+
+      span {
+         padding: 0 $g-large;
+      }
+    }
+    
+}
