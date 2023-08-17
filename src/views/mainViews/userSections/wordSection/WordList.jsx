@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import './wordSection.style.scss';
 
 export const WordList = () => {

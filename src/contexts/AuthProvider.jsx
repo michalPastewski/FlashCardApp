@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }) => {
 
   const signOutUser = async () => {
     await signOut(auth);
-    console.log('User is sign out');
+    console.info('User is sign out');
   };
 
   useEffect(() => {
