@@ -4,11 +4,9 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from 'firebase/auth';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { createContext, useContext, useEffect, useState } from 'react';
-import {
-  // onAuthStateChangedListener,
-  auth,
-} from '../utils/firebase';
+import { auth, db } from '../utils/firebase';
 
 export const AuthContext = createContext();
 
@@ -34,8 +32,39 @@ export const AuthProvider = ({ children }) => {
     console.info('User is sign out');
   };
 
+  const createUserDocumentFromAuth = async (
+    userAuth,
+    additionalInformation = {}
+  ) => {
+    if (!userAuth) return;
+
+    const userDocRef = doc(db, 'users', userAuth.uid);
+
+    const userSnapshot = await getDoc(userDocRef);
+
+    if (!userSnapshot.exists()) {
+      const { email } = userAuth;
+      const createdAt = new Date();
+
+      try {
+        await setDoc(userDocRef, {
+          email,
+          createdAt,
+          ...additionalInformation,
+        });
+      } catch (error) {
+        console.log(error.message);
+      }
+    }
+
+    return userDocRef;
+  };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        createUserDocumentFromAuth(user);
+      }
       setCurrentUser(user);
     });
 
@@ -48,6 +77,7 @@ export const AuthProvider = ({ children }) => {
     createAuthUserWithEmailAndPassword,
     signInAuthUserWithEmailAndPassword,
     signOutUser,
+    createUserDocumentFromAuth,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
