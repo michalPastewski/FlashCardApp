@@ -8,7 +8,11 @@ import { useAuth } from '../../contexts/AuthProvider';
 import './loginSection.style.scss';
 
 export const SignUp = ({ onBack }) => {
-  const { createAuthUserWithEmailAndPassword } = useAuth();
+  const {
+    createAuthUserWithEmailAndPassword,
+    createUserDocumentFromAuth,
+    currentUser,
+  } = useAuth();
   const navigate = useNavigate();
 
   const emailRef = useRef();
@@ -29,12 +33,13 @@ export const SignUp = ({ onBack }) => {
         emailRef.current.value,
         passwordRef.current.value
       );
+      await createUserDocumentFromAuth(currentUser);
+
       console.info('User was signed up successfully');
-      emailRef.current.value = '';
-      passwordRef.current.value = '';
-      confirmPasswordRef.current.value = '';
       navigate('/');
     } catch (error) {
+      passwordRef.current.value = '';
+      confirmPasswordRef.current.value = '';
       console.error('ERROR', error.message);
     }
   };
