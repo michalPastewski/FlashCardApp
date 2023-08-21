@@ -27,7 +27,7 @@ export const SignIn = ({ handelSignUpButton }) => {
       console.info('User is sign in successfully');
       navigate('/');
     } catch (error) {
-      passwordRef.current.value;
+      passwordRef.current.value = '';
       console.error('ERROR', error.message);
     }
   };
