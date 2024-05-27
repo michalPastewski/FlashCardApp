@@ -1,8 +1,9 @@
 // colors pattern 
 $base-color: rgb(255, 255, 255);
-$primary-color: rgb(2, 48, 71);
+$primary-color: rgb(18, 56, 75);
 $secondary-color: #FFB703;
-$hover-color: #8ECAE6;
+// $hover-color: rgb(18, 56, 75,0.06);
+$hover-color: $secondary-color;
 $action-color: #219EBC;
 $exclamation-button-color: #FB8500;
 $primary-transparency-background-color: rgb(2, 48, 71, 0.3);
@@ -23,6 +24,7 @@ $g-extra-large: 13px;
 //fonts sizing
 $f-small: 0.8em;
 $f-normal: 1em;
+$f-regular: 1.2em;
 $f-large: 1.5em;
 $f-extra-large: 2em;
 
@@ -32,4 +34,4 @@ $button-radius: 3px;
 
 //shadows
 $regular-shadow:  0 0 20px -3px $primary-color;
-$small-shadow:  0 0 10px -3px $primary-color;
+$small-shadow:  0 0 15px -3px $primary-color;

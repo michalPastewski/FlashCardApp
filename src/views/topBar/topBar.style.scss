@@ -6,17 +6,18 @@
    justify-content: space-between;
 
    height: 50px;
-   padding: $g-medium $g-extra-large;
+   padding: $g-extra-large;
 
-   color: $secondary-color;
-
-   background-color: $primary-color;
+   color: $primary-color;
+   background-color: $base-color;
 
    &--logo {
+
       h3 {
          font-size: $f-large;
       }
    }
+
    // .top__bar--search {
    //    margin: 0;
 

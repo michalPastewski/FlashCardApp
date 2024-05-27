@@ -1,8 +1,12 @@
 import { Button } from '../../../../components/Button';
 import { FormInput } from '../../../../components/FormInput';
 import { Modal } from '../../../../components/Modal';
+import { useAuth } from '../../../../contexts/AuthProvider';
+import { addNewWord } from '../../../../utils/firebase';
 
 export const AddWordForm = ({ onCancel }) => {
+  const { currentUser } = useAuth();
+
   return (
     <Modal>
       <form className="add__form">
@@ -14,11 +18,12 @@ export const AddWordForm = ({ onCancel }) => {
           <Button
             label="cancel"
             type="button"
-            onClick={() => onCancel(false)}
+            // onClick={() => onCancel(false)}
+            onClick={() => addNewWord(currentUser)}
           />
           <Button label="add" appearance="submit" />
         </div>
       </form>
     </Modal>
-  );
+  );``
 };
