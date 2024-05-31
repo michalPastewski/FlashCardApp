@@ -1,21 +1,39 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useAuth } from '../../../../contexts/AuthProvider';
+import { getWordsList } from '../../../../utils/firebase';
 
 import './wordSection.style.scss';
 
 export const WordList = () => {
-  const [isTranslation, setIsTranslation] = useState(false);
+  const { currentUser } = useAuth();
+  // const [isTranslation, setIsTranslation] = useState(false);
+  const [wordsCollection, setWordsCollection] = useState([]);
 
-  const handleCardStatus = (status) => {
-    setIsTranslation(status);
-  };
+  // const handleCardStatus = (status) => {
+  //   setIsTranslation(status);
+  // };
+
+  console.log('Collection', wordsCollection);
+
+  useEffect(() => {
+    if (currentUser) {
+      const data = getWordsList(currentUser.uid);
+      data.then((resp) => setWordsCollection(resp));
+    }
+  }, [currentUser]);
 
   return (
     <div className="words--container">
-      {!isTranslation ? (
+      {wordsCollection.length > 0 ? (
+        <WordCard wordsCollection={wordsCollection} />
+      ) : (
+        <div>Loading</div>
+      )}
+      {/* {!isTranslation ? (
         <div
           className="words--card"
           onClick={() => handleCardStatus(!isTranslation)}>
-          word 1
+          {wordsCollection.length > 0 ? wordsCollection[0].word : 'hello'}
         </div>
       ) : (
         <div
@@ -23,7 +41,33 @@ export const WordList = () => {
           onClick={() => handleCardStatus(!isTranslation)}>
           translation 1
         </div>
-      )}
+      )} */}
     </div>
+  );
+};
+
+const WordCard = (props) => {
+  const [isTranslation, setIsTranslation] = useState(false);
+
+  const handleCardStatus = (status) => {
+    setIsTranslation(status);
+  };
+
+  return (
+    <>
+      {!isTranslation ? (
+        <div
+          className="words--card"
+          onClick={() => handleCardStatus(!isTranslation)}>
+          {props.wordsCollection[0].word}
+        </div>
+      ) : (
+        <div
+          className="words--card"
+          onClick={() => handleCardStatus(!isTranslation)}>
+          {props.wordsCollection[0].translation[0]}
+        </div>
+      )}
+    </>
   );
 };
