@@ -6,12 +6,7 @@ import './wordSection.style.scss';
 
 export const WordList = () => {
   const { currentUser } = useAuth();
-  // const [isTranslation, setIsTranslation] = useState(false);
   const [wordsCollection, setWordsCollection] = useState([]);
-
-  // const handleCardStatus = (status) => {
-  //   setIsTranslation(status);
-  // };
 
   console.log('Collection', wordsCollection);
 

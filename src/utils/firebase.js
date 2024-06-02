@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import {
+  addDoc,
   collection,
   doc,
   getDoc,
@@ -81,18 +82,20 @@ export const initWordsCollection = async (db, userID) => {
 };
 
 // Add words to the database.
-export const addNewWord = async (user) => {
-  const getUserSignature = profileSignatureGenerator(user);
-  const q = query(collection(db, `users/${getUserSignature}/words`));
+export const addNewWord = async (userId, wordData) => {
+  const batch = writeBatch(db);
+  const collectionRef = collection(db, `users/${userId}/words`);
+  const docRef = doc(collectionRef, wordData.word);
+  
+  batch.set(docRef, wordData);
+  await batch.commit();
 
-  const querySnaphot = await getDoc(q);
-
-  console.log(querySnaphot);
+  console.log('Word was added', docRef);
 };
 
 // Fetch words list from database.
 export const getWordsList = async (userId) => {
-   const collectionRef = collection(db, `users/${userId}/words`);
+  const collectionRef = collection(db, `users/${userId}/words`);
   try {
     const querySnapshot = await getDocs(collectionRef);
     const docs = [];
