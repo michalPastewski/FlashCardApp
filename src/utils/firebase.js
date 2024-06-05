@@ -68,9 +68,9 @@ export const auth = getAuth();
 export const initWordsCollection = async (db, userID) => {
   const initialWord = {
     word: 'hello',
-    translation: ['cześć'],
-    synonyms: [],
-    examples: [],
+    translation: 'cześć',
+    synonyms: '',
+    examples: '',
   };
 
   const batch = writeBatch(db);
@@ -86,7 +86,7 @@ export const addNewWord = async (userId, wordData) => {
   const batch = writeBatch(db);
   const collectionRef = collection(db, `users/${userId}/words`);
   const docRef = doc(collectionRef, wordData.word);
-  
+
   batch.set(docRef, wordData);
   await batch.commit();
 

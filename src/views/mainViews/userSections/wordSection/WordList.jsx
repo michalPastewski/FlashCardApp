@@ -1,19 +1,18 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '../../../../contexts/AuthProvider';
-import { getWordsList } from '../../../../utils/firebase';
+import { useData } from '../../../../contexts/DataProvider';
 
 import './wordSection.style.scss';
 
 export const WordList = () => {
   const { currentUser } = useAuth();
-  const [wordsCollection, setWordsCollection] = useState([]);
+  const {wordsCollection, getWordsCollection} = useData();
 
   console.log('Collection', wordsCollection);
 
   useEffect(() => {
     if (currentUser) {
-      const data = getWordsList(currentUser.uid);
-      data.then((resp) => setWordsCollection(resp));
+      getWordsCollection();
     }
   }, [currentUser]);
 
@@ -24,19 +23,6 @@ export const WordList = () => {
       ) : (
         <div>Loading</div>
       )}
-      {/* {!isTranslation ? (
-        <div
-          className="words--card"
-          onClick={() => handleCardStatus(!isTranslation)}>
-          {wordsCollection.length > 0 ? wordsCollection[0].word : 'hello'}
-        </div>
-      ) : (
-        <div
-          className="words--card"
-          onClick={() => handleCardStatus(!isTranslation)}>
-          translation 1
-        </div>
-      )} */}
     </div>
   );
 };
@@ -60,7 +46,7 @@ const WordCard = (props) => {
         <div
           className="words--card"
           onClick={() => handleCardStatus(!isTranslation)}>
-          {props.wordsCollection[0].translation[0]}
+          {props.wordsCollection[0].translation}
         </div>
       )}
     </>

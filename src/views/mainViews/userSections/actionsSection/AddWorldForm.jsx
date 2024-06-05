@@ -15,22 +15,23 @@ export const AddWordForm = ({ onCancel }) => {
   const createWordData = () => {
     const wordData = {
       word: wordInput.current.value,
-      translation: [],
-      synonyms: [],
-      examples: [],
+      translation: translationInput.current.value,
+      synonyms: synonymsInput.current.value,
+      examples: examplesInput.current.value,
     };
-
-    wordData.translation.push(translationInput.current.value);
-    wordData.synonyms.push(synonymsInput.current.value);
-    wordData.examples.push(examplesInput.current.value);
 
     return wordData;
   };
 
-  const onClick = async () => {
-    const newWord = createWordData();
-
-    await addNewWord(currentUser.uid, newWord);
+  const handleAddNewWord = async () => {
+    try {
+      const newWord = createWordData();
+      await addNewWord(currentUser.uid, newWord);
+      // await getWordsList();
+      onCancel(false);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -50,10 +51,14 @@ export const AddWordForm = ({ onCancel }) => {
           <Button
             label="cancel"
             type="button"
-            // onClick={() => onCancel(false)}
-            onClick={() => onClick()}
+            onClick={() => onCancel(false)}
           />
-          <Button label="add" appearance="submit" onClick={() => onClick()} />
+          <Button
+            type="button"
+            label="add"
+            appearance="submit"
+            onClick={() => handleAddNewWord()}
+          />
         </div>
       </form>
     </Modal>
