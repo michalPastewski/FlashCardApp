@@ -1,12 +1,14 @@
 import { useRef } from 'react';
-import { Button } from '../../../../components/Button';
-import { FormInput } from '../../../../components/FormInput';
-import { Modal } from '../../../../components/Modal';
-import { useAuth } from '../../../../contexts/AuthProvider';
-import { addNewWord } from '../../../../utils/firebase';
+import { Button } from '../../../components/Button';
+import { FormInput } from '../../../components/FormInput';
+import { Modal } from '../../../components/Modal';
+import { useAuth } from '../../../contexts/AuthProvider';
+import { useData } from '../../../contexts/DataProvider';
+import { addNewWord } from '../../../utils/firebase';
 
 export const AddWordForm = ({ onCancel }) => {
   const { currentUser } = useAuth();
+  const { getWordsCollection } = useData();
   const wordInput = useRef();
   const translationInput = useRef();
   const synonymsInput = useRef();
@@ -23,11 +25,13 @@ export const AddWordForm = ({ onCancel }) => {
     return wordData;
   };
 
-  const handleAddNewWord = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
     try {
       const newWord = createWordData();
       await addNewWord(currentUser.uid, newWord);
-      // await getWordsList();
+      await getWordsCollection();
       onCancel(false);
     } catch (error) {
       console.error(error);
@@ -36,7 +40,7 @@ export const AddWordForm = ({ onCancel }) => {
 
   return (
     <Modal>
-      <form className="add__form">
+      <form className="add__form" onSubmit={handleSubmit}>
         <FormInput
           label="new word"
           type="text"
@@ -53,12 +57,7 @@ export const AddWordForm = ({ onCancel }) => {
             type="button"
             onClick={() => onCancel(false)}
           />
-          <Button
-            type="button"
-            label="add"
-            appearance="submit"
-            onClick={() => handleAddNewWord()}
-          />
+          <Button type="submit" label="add" appearance="submit" />
         </div>
       </form>
     </Modal>

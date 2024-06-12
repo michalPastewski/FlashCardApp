@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../../components/Button';
 import { FormInput } from '../../components/FormInput';
-import { useAuth } from './../../contexts/AuthProvider';
+import { useAuth } from '../../contexts/AuthProvider';
 // import { InfoBox } from '../../components/InfoBox';
 
 import './loginSection.style.scss';

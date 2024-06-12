@@ -1,9 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
 import { LoginSection } from './views/loginSection/LoginSection';
-import { MainView } from './views/mainViews/MainView';
-import { UserSection } from './views/mainViews/userSections/UserSection';
-import { LearnSection } from './views/mainViews/userSections/actionsSection/LearnSection';
 import { TopBar } from './views/topBar/TopBar';
+import { LearnSection } from './views/userSections/LearnSection';
+import { MainView } from './views/userSections/MainView';
+import { UserSection } from './views/userSections/UserSection';
 
 import './App.scss';
 
