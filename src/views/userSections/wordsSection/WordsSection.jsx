@@ -1,7 +1,7 @@
-import { WordList } from './WordList';
-import { WordSectionHeader } from './WordSectionHeader';
+import { WordList } from './WordsList';
+import { WordSectionHeader } from './WordsSectionHeader';
 
-import './wordSection.style.scss';
+import './wordsSection.style.scss';
 
 export const WordSection = () => {
   return (

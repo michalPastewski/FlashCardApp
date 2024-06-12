@@ -10,16 +10,15 @@
 
       background-color: $background;
       color: $majorColor;
-      border: solid 2px $majorColor;
-      border-radius: 8px;
 }
 
 .button {
-  @include button();
+  @include button($base-color, $primary-color);
+  font-size: clamp($f-normal, 2.2vw , $f-regular);
 
   &:hover {
-      background-color: $primary-color;
-      color: $secondary-color;
+      background-color: $hover-color;
+      box-shadow: inset $small-shadow;
    }
    &:active {
       -webkit-box-shadow: inset 0px 0px 19px -6px $primary-color;

@@ -6,9 +6,7 @@ import {
 } from 'firebase/auth';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { createContext, useContext, useEffect, useState } from 'react';
-import { auth,createUserDocumentFromAuth } from '../utils/firebase';
-import { auth, db } from '../utils/firebase';
-
+import { auth, db, initWordsCollection } from '../utils/firebase';
 
 export const AuthContext = createContext();
 
@@ -54,6 +52,7 @@ export const AuthProvider = ({ children }) => {
           createdAt,
           ...additionalInformation,
         });
+        await initWordsCollection(db, userAuth.uid);
       } catch (error) {
         console.log(error.message);
       }

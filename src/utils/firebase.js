@@ -1,10 +1,13 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import {
+  addDoc,
   collection,
   doc,
   getDoc,
+  getDocs,
   getFirestore,
+  query,
   setDoc,
   writeBatch,
 } from 'firebase/firestore';
@@ -31,48 +34,76 @@ export const db = getFirestore();
 // Authenticate with Firebase.
 export const auth = getAuth();
 
-export const createUserDocumentFromAuth = async (
-  userAuth,
-  additionalInformation = {}
-) => {
-  if (!userAuth) return;
+// TODO: this functionality was moved to AuthProvid
+// export const createUserDocumentFromAuth = async (
+//   userAuth,
+//   additionalInformation = {}
+// ) => {
+//   if (!userAuth) return;
 
-  const userProfileSignature = profileSignatureGenerator(userAuth);
-  const userDocRef = doc(db, 'users', userProfileSignature);
+//   const userProfileSignature = profileSignatureGenerator(userAuth);
+//   const userDocRef = doc(db, 'users', userProfileSignature);
 
-  const userSnapshot = await getDoc(userDocRef);
+//   const userSnapshot = await getDocs(userDocRef);
 
-  if (!userSnapshot.exists()) {
-    const { email } = userAuth;
-    const createdAt = new Date();
+//   if (!userSnapshot.exists()) {
+//     const { email } = userAuth;
+//     const createdAt = new Date();
 
-    try {
-      await setDoc(userDocRef, {
-        email,
-        createdAt,
-        ...additionalInformation,
-      });
-      await initWordsCollection(db, userProfileSignature);
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
+//     try {
+//       await setDoc(userDocRef, {
+//         email,
+//         createdAt,
+//         ...additionalInformation,
+//       });
+//       await initWordsCollection(db, userProfileSignature);
+//     } catch (error) {
+//       console.log(error.message);
+//     }
+//   }
 
-  return userDocRef;
-};
+//   return userDocRef;
+// };
 
-export const initWordsCollection = async (database, userID) => {
+export const initWordsCollection = async (db, userID) => {
   const initialWord = {
     word: 'hello',
-    translation: '',
+    translation: 'cześć',
     synonyms: '',
-    examples: [],
+    examples: '',
   };
 
-  const batch = writeBatch(database);
-  const collectionRef = collection(database, `users/${userID}/words`);
+  const batch = writeBatch(db);
+  const collectionRef = collection(db, `users/${userID}/words`);
   const docRef = doc(collectionRef, initialWord.word);
 
   batch.set(docRef, initialWord);
   await batch.commit();
+};
+
+// Add words to the database.
+export const addNewWord = async (userId, wordData) => {
+  const batch = writeBatch(db);
+  const collectionRef = collection(db, `users/${userId}/words`);
+  const docRef = doc(collectionRef, wordData.word);
+
+  batch.set(docRef, wordData);
+  await batch.commit();
+
+  console.log('Word was added', docRef);
+};
+
+// Fetch words list from database.
+export const getWordsList = async (userId) => {
+  const collectionRef = collection(db, `users/${userId}/words`);
+  try {
+    const querySnapshot = await getDocs(collectionRef);
+    const docs = [];
+    querySnapshot.forEach((doc) => {
+      docs.push({ id: doc.id, ...doc.data() });
+    });
+    return docs;
+  } catch (e) {
+    console.error(e.message);
+  }
 };

@@ -1,8 +1,6 @@
 import { useState } from 'react';
 
-import './wordSection.style.scss';
-
-export const WordList = () => {
+export const WordCard = ({ word, translation }) => {
   const [isTranslation, setIsTranslation] = useState(false);
 
   const handleCardStatus = (status) => {
@@ -10,20 +8,21 @@ export const WordList = () => {
   };
 
   return (
-    <div className="words--container">
+    <>
       {!isTranslation ? (
         <div
           className="words--card"
           onClick={() => handleCardStatus(!isTranslation)}>
-          word 1
+          {word}
         </div>
       ) : (
         <div
           className="words--card"
-          onClick={() => handleCardStatus(!isTranslation)}>
-          translation 1
+          onClick={() => handleCardStatus(!isTranslation)}
+          onMouseLeave={() => setTimeout(() => setIsTranslation(false), 500)}>
+          {translation}
         </div>
       )}
-    </div>
+    </>
   );
 };

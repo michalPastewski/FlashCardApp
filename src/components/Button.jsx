@@ -2,7 +2,7 @@ import './button.style.scss';
 
 export const Button = ({ label, ...otherProps }) => {
   let buttonStyle = '';
-  
+
   switch (otherProps.appearance) {
     case 'secondary':
       buttonStyle = 'secondary-button';
@@ -16,7 +16,7 @@ export const Button = ({ label, ...otherProps }) => {
   }
   return (
     <button
-      className={`button 
+      className={`button
             ${otherProps.size === 'large' ? 'large-button' : ''} 
             ${buttonStyle}`}
       {...otherProps}>

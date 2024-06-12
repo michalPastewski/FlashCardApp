@@ -1,4 +1,4 @@
-import './wordSection.style.scss';
+import './wordsSection.style.scss';
 
 export const WordSectionHeader = () => {
   return (
