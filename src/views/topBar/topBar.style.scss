@@ -50,9 +50,8 @@
       margin-right: var(--g-small);
 
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
       justify-content: flex-end;
-      align-self: flex-start;
 
       &__buttons {
          display: flex;
@@ -61,9 +60,10 @@
    }
    
    &--input {
-      width: 76%;
+      width: clamp(120px, 20vw, 270px);
       margin: var(--g-small) var(--g-medium) 0;
       padding: var(--g-medium) var(--g-large);
+      align-self: flex-end;
       
       border: none;
       border-radius: var(--input-radius);

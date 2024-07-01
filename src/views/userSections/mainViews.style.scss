@@ -1,10 +1,12 @@
-@use '../../variables' as *;
+@use '../../constant//variables' as *;
 .main__view {
    &--loading {
-      padding: $g-extra-large;   
+      padding: $g-extra-large;
+       
       display: flex;
       flex-direction: column;
       align-items: center;
+
       background-color: $base_color;
       border-radius: $border-radius;
    

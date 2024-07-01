@@ -1,4 +1,4 @@
-@use '../../variables' as *;
+@use '../../constant/variables' as *;
 
 .login__section {
    width: min(455px, 93vw);
@@ -14,7 +14,7 @@
       margin-top: $g-large;
       display: flex;
       flex-direction: column;
-      // justify-content: center;
+
       align-items: flex-start;
       font-size: $f-small;
    }

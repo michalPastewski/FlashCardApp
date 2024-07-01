@@ -1,7 +1,5 @@
 import { useState } from 'react';
-import { ActionsNavigation } from './ActionsNavigation';
-import { AddWordForm } from './AddWorldForm';
-
+import { AddWordForm } from '../../../components/AddWorldForm';
 import './actionsSection.style.scss';
 
 export const ActionsSection = () => {
@@ -9,7 +7,6 @@ export const ActionsSection = () => {
 
   return (
     <article className="actions">
-      <ActionsNavigation onAddWorld={setAddForm} />
       {addForm && <AddWordForm onCancel={setAddForm} />}
     </article>
   );

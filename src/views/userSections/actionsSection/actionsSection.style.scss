@@ -1,4 +1,4 @@
-@use '../../../variables' as *;
+@use '../../../constant/variables' as *;
 
 .actions {
    width: 100vw;
@@ -10,9 +10,7 @@
    background-color: $base-color;
 
    &__buttons {
-      // padding: $g-medium 0 $g-large;
       display: flex;
-      // justify-content: space-around;
       font-size: $f-normal ;
       border-bottom: solid $g-extra-small $primary-color;
       border-top: solid $g-extra-small $primary-color;

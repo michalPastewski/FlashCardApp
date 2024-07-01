@@ -1,17 +1,12 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import {
-  addDoc,
   collection,
   doc,
-  getDoc,
   getDocs,
   getFirestore,
-  query,
-  setDoc,
   writeBatch,
 } from 'firebase/firestore';
-import { profileSignatureGenerator } from '../utils/helpers';
 // import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
@@ -33,37 +28,6 @@ export const db = getFirestore();
 
 // Authenticate with Firebase.
 export const auth = getAuth();
-
-// TODO: this functionality was moved to AuthProvid
-// export const createUserDocumentFromAuth = async (
-//   userAuth,
-//   additionalInformation = {}
-// ) => {
-//   if (!userAuth) return;
-
-//   const userProfileSignature = profileSignatureGenerator(userAuth);
-//   const userDocRef = doc(db, 'users', userProfileSignature);
-
-//   const userSnapshot = await getDocs(userDocRef);
-
-//   if (!userSnapshot.exists()) {
-//     const { email } = userAuth;
-//     const createdAt = new Date();
-
-//     try {
-//       await setDoc(userDocRef, {
-//         email,
-//         createdAt,
-//         ...additionalInformation,
-//       });
-//       await initWordsCollection(db, userProfileSignature);
-//     } catch (error) {
-//       console.log(error.message);
-//     }
-//   }
-
-//   return userDocRef;
-// };
 
 export const initWordsCollection = async (db, userID) => {
   const initialWord = {
