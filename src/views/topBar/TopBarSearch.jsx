@@ -2,8 +2,6 @@ import './topBar.style.scss';
 
 export const TopBarSearch = () => {
   return (
-    <form className="top__bar--search">
-      <input type="search" placeholder="Search word" name="top-search" />
-    </form>
+      <input type="search" placeholder="search" name="top-search" className="top__bar--input"/>
   );
 };

@@ -1,39 +1,81 @@
-@use '../../variables' as *;
+@use '../../constant/variables' as *;
 
 .top__bar {
+   width: 100vw;
+   height: 75px;
+
    display: flex;
    align-items: center;
    justify-content: space-between;
 
-   height: 50px;
-   padding: $g-extra-large;
-
    color: $primary-color;
-   background-color: $base-color;
+   background: linear-gradient(180deg, rgba(0,63,107,1) 0%, 
+                              rgba(0,90,151,.75) 60%, 
+                              rgba(239,239,239,1) 100%);
 
-   &--logo {
+   &__logo {
+      width: 20vw;
+      margin-top: var(--g-normal);
+      padding-left: var(--g-normal);
 
-      h3 {
-         font-size: $f-large;
+      align-self: flex-start;
+      color: var(--base-color);
+      
+      &--image {
+         width: 100px;
+      }
+
+      p {
+         font-family: var(--header-font);
+         font-size: var(--f-regular);
+         letter-spacing: 2px
       }
    }
 
-   // .top__bar--search {
-   //    margin: 0;
+   &--header {
+      width: 60vw;
+      text-align: center;
 
-   //    input {
-   //       width: 35vw;
-   //       height: $f-extra-large;
-   //       padding: $g-large;
+      h1 {
+         font-family: var(--header-font);
+         font-size: var(--f-extra-large);
+         letter-spacing: 0.2em;
+         color: var(--accent-color);
+       }
+   }
 
-   //       border: solid 2px $secondary-color;
-   //       border-radius: 8px;
-   //       color: $primary-color;
-   //    }
+   &__navigation {
+      width: 20vw;
+      margin-top: var(--g-medium);
+      margin-right: var(--g-small);
 
-   //    input::placeholder {
-   //       opacity: 0.5;
-   //       color: $primary-color;
-   //    }
-   // }
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      align-self: flex-start;
+
+      &__buttons {
+         display: flex;
+         justify-content: flex-end;
+      }
+   }
+   
+   &--input {
+      width: 76%;
+      margin: var(--g-small) var(--g-medium) 0;
+      padding: var(--g-medium) var(--g-large);
+      
+      border: none;
+      border-radius: var(--input-radius);
+      box-shadow: inset 0 0 2px 0 var(--primary-color);
+
+      &::placeholder {
+         color: var(--disable-color);
+      }
+
+      &:focus {
+         outline: none;
+         border: solid 1px var(--primary-color);
+      }
+   }
 }

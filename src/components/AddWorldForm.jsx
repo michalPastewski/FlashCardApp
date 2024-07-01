@@ -1,10 +1,10 @@
 import { useRef } from 'react';
-import { Button } from '../../../components/Button';
-import { FormInput } from '../../../components/FormInput';
-import { Modal } from '../../../components/Modal';
-import { useAuth } from '../../../contexts/AuthProvider';
-import { useData } from '../../../contexts/DataProvider';
-import { addNewWord } from '../../../utils/firebase';
+import { useAuth } from '../contexts/AuthProvider';
+import { useData } from '../contexts/DataProvider';
+import { addNewWord } from '../utils/firebase';
+import { Button } from './Button';
+import { FormInput } from './FormInput';
+import { Modal } from './Modal';
 
 export const AddWordForm = ({ onCancel }) => {
   const { currentUser } = useAuth();

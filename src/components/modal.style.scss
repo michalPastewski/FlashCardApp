@@ -1,4 +1,4 @@
-@use '../variables' as *;
+@use '../constant/variables' as *;
 
 .modal {
    position: absolute;
@@ -12,16 +12,17 @@
    align-items: start;
  
    &--item {
-   width: 88vw;
+    width: 88vw;
     min-height: 40vh;
     margin-top: 10vh;
     padding: $g-large;
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
  
     border-radius: $border-radius;
     box-shadow: $regular-shadow;
-    background-color: $base-color;
+    background-color: var(--base-color);
    }
  }

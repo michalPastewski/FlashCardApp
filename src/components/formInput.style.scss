@@ -1,8 +1,9 @@
-@use '../variables' as *;
+@use '../constant/variables' as *;
 
 .form__input {
    width: 95%;
    margin-top: $g-large;
+
    display: flex;
    flex-direction: column;
    
@@ -14,6 +15,7 @@
    &--input {
       padding: $g-small; 
       font-size: $f-normal;
+      
       border-style: none none solid none;
       border-color: $primary-color;
       border-bottom-width: 1px;
@@ -22,7 +24,7 @@
          box-sizing: border-box;
 
          border-color: $secondary-color;
-         border-width: 2px;
+         border-bottom-width: 2px;
          outline: none;
       }
    }

@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+   // colors pattern 
+$base-color: rgb(255, 255, 255);
+$primary-color: rgb(18, 56, 75);
+$secondary-color: #FFB703;
+// $hover-color: rgb(18, 56, 75,0.06);
+$hover-color: $secondary-color;
+$action-color: #219EBC;
+$exclamation-button-color: #FB8500;
+$primary-transparency-background-color: rgb(2, 48, 71, 0.3);
+$secondary-transparency-background-color: rgb(255, 255, 255, 0.5);
+$error-color: rgb(250, 29, 0);
+$warning-color: rgb(250, 29, 0, 0.2);
+$success-color: #008945;
+
+
+// gutters, paddings, margins patterns
+$g-extra-small: 1px;
+$g-small: 3px;
+$g-medium: 5px;
+$g-normal: 8px;
+$g-large: 12px;
+$g-extra-large: 16px;
+
+
+
+//fonts sizing
+$f-small: 0.8em;
+$f-normal: 1em;
+$f-regular: 1.2em;
+$f-large: 1.5em;
+$f-extra-large: 2em;
+
+// borders
+$border-radius: 5px;
+$button-radius: 3px;
+
+//shadows
+$regular-shadow:  0 0 20px -3px $primary-color;
+$small-shadow:  0 0 15px -3px $primary-color;
+
+html {
+//colors
+   --primary-dark-color: #00487C;
+   --primary-color: #0365AB;
+   --primary-light-color: #0075C4;
+   --accent-color: #F8B420;
+   --base-color: #ffffff;
+   --base-dark-color: #EFEFEF;
+
+   --disable-color: #c4c4c4;
+   --success-color: #10BF55;
+   --warning-color: #FF2424;
+
+   --text-color: #01070E;
+
+//fonts
+   --header-font: "Bubblegum Sans", sans-serif;
+   --regular-font: "Open Sans", sans-serif;
+   --message-font: "Work Sans", sans-serif;
+
+//font-size
+   --f-small: 8px;
+   --f-regular: 12px;
+   --f-normal: 16px;
+   --f-large: 20px;
+   --f-extra-large: 28px;
+
+// gutters, paddings, margins patterns
+   --g-extra-small: 1px;
+   --g-small: 3px;
+   --g-medium: 5px;
+   --g-normal: 8px;
+   --g-large: 12px;
+   --g-extra-large: 16px;
+
+// borders
+   --border-radius: 8px;
+   --input-radius: 5px;
+   --button-radius: 3px;
+}

@@ -1,9 +1,11 @@
-@use './variables' as *;
-@use './normalize';
+@use './constant/variables' as *;
+@use './constant/normalize';
 
 .main__container {
   width: 100vw;
   height: calc(100vh - 50px);
+  color: var(--text-color);
+  font-family: var(--regular-font);
 
   .content {
     height: inherit;

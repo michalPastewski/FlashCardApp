@@ -1,29 +1,29 @@
-@use '../variables' as *;
-
-@mixin button($background: $base-color, $majorColor: $primary-color) {
-      min-width: 100px;
-      min-height: 36px;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      background-color: $background;
-      color: $majorColor;
-}
+@use '../constant/variables' as *;
 
 .button {
-  @include button($base-color, $primary-color);
-  font-size: clamp($f-normal, 2.2vw , $f-regular);
+  min-width: 80px;
+  min-height: 30px;
+  margin: var(--g-small) var(--g-medium);
+  background-color: transparent;
 
-  &:hover {
-      background-color: $hover-color;
-      box-shadow: inset $small-shadow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: solid 1px transparent;
+  border-radius: var(--border-radius);
+
+  color: var(--accent-color);
+  font-size: clamp(var(--f-regular), 2.2vw , var(--f-small));
+  letter-spacing: 1px;
+
+   &:hover {
+      border-color: var(--primary-light-color);
+      color: var(--base-color);
    }
+
    &:active {
-      -webkit-box-shadow: inset 0px 0px 19px -6px $primary-color;
-      -moz-box-shadow: inset 0px 0px 19px -6px $primary-color;
-      box-shadow: inset 0px 0px -6px $primary-color;
+      background-color: var(--primary-color);
    }
 
    &:disabled {
@@ -31,14 +31,15 @@
       border-color: #aeb1b3;
       color:#aeb1b3;
    }
+
 }
 
-
 .secondary-button {
-   @include button($primary-color, $secondary-color);
    min-height: 50px;
    margin: $g-normal;
+   background-color: var(--primary-color);
 
+   color: var(--text-color);
    font-size: $f-large;
 
    &:hover {
@@ -47,11 +48,15 @@
 }
 
 .submit-button {
-   @include button($exclamation-button-color, $primary-color);
+  background-color: var(--accent-color);
+  color: var(--text-color);
+
+  &:hover {
+   background-color: var(--base-color);
+}
 }
 
 .revers-button {
-   @include button($primary-color, $secondary-color);
 
    &:hover {
       background-color: $hover-color;

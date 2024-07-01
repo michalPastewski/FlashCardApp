@@ -8,21 +8,11 @@ export const WordCard = ({ word, translation }) => {
   };
 
   return (
-    <>
-      {!isTranslation ? (
-        <div
-          className="words--card"
-          onClick={() => handleCardStatus(!isTranslation)}>
-          {word}
-        </div>
-      ) : (
-        <div
-          className="words--card"
-          onClick={() => handleCardStatus(!isTranslation)}
-          onMouseLeave={() => setTimeout(() => setIsTranslation(false), 500)}>
-          {translation}
-        </div>
-      )}
-    </>
+    <div
+      className="words--card"
+      onClick={() => handleCardStatus(!isTranslation)}
+      onMouseLeave={() => setTimeout(() => setIsTranslation(false), 500)}>
+      {!isTranslation ? word :  translation}
+    </div>
   );
 };
