@@ -1,48 +1,70 @@
 @use '../../../constant/variables' as *;
 
 .words {
-   width: 93vw;
+   width: 99vw;
+   margin: var(--g-extra-large) 0;
+   padding: var(--g-medium);
+
    display: flex;
-   flex-direction: column;
-   align-items: center;
+   flex-wrap: wrap;
+   justify-content: space-evenly;
 
-   &--header {
-      width: 70vw;
-      padding: $g-medium 0;
+      &__card {
+      width: 150px;
+      height: 50px;
+      margin: var(--g-large);
 
-      color: $primary-color;
-      font-size: $f-large;
-      text-align: center;
-
-      span {
-         display: inline-block;
-         width: 70%;
-         border-bottom: solid 2px $primary-color;
-      }
-   }
-
-   &--container {
-      padding: $g-extra-large $g-medium $g-medium;
-
-      display: grid;
-      grid-template-areas: 'a a';
-      gap: $g-large;
-      grid-auto-rows: 50px;
-      grid-template-columns: 42vw 42vw;
-   }
-    &--card {
       display: flex;
       align-items: center;
       justify-content: center;
 
-      border: solid 2px $primary-color;
-      border-radius: $g-medium;
+      border-bottom: solid 1px var(--primary-color);
+      border-radius: var(--border-radius); 
 
-      color:$primary-color;
-      font-size: $f-normal;
+      box-shadow: 0 0 8px 0 var(--card-shadow-color);
 
       &:hover {
-         background-color: $hover-color;
+         border-color: var(--accent-color);
+         box-shadow: 0 0 5px 0 var( --accent-color);
       }
-    }
+       &:active {
+         box-shadow: inset 0 0 8px 0 var(--card-shadow-color);
+       }
+
+      &--text {
+         width: 85%;
+         margin: 0 var(--g-normal);
+
+         text-align: center;
+      }
+
+      &__content {
+         width: 15%;
+         margin: 0 var(--g-medium) var(--g-medium) 0;
+
+         align-self: flex-end;
+         text-align: center;
+         border-radius: 5px;
+
+         &:hover {
+            background-color: var(--card-hover-shadow-color);
+         }
+
+         &--icon {
+            width: 10px;
+            height: 10px;
+
+            transform: rotate(-45deg) translateY(2px);
+         }
+
+      }
+   }
+
+   &__open-card {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background-color: red;
+
+   }
 }

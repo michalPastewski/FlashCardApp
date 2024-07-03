@@ -53,6 +53,9 @@ html {
    --success-color: #10BF55;
    --warning-color: #FF2424;
 
+   --card-shadow-color: rgba(0, 117, 196, 0.3);
+   --card-hover-shadow-color: rgba(248, 180, 32, 0.3);
+
    --text-color: #01070E;
 
 //fonts
@@ -79,4 +82,5 @@ html {
    --border-radius: 8px;
    --input-radius: 5px;
    --button-radius: 3px;
+
 }

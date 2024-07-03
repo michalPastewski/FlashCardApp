@@ -16,18 +16,19 @@ export const WordList = () => {
   }, [currentUser, wordsCollection.length]);
 
   return (
-    <div className="words--container">
+    <>
       {wordsCollection.length > 0 ? (
         wordsCollection.map((item) => (
           <WordCard
             word={item.word}
             translation={item.translation}
             key={item.id}
+            id={item.id}
           />
         ))
       ) : (
         <div>Loading</div>
       )}
-    </div>
+    </>
   );
 };
