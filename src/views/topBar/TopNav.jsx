@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AddWordForm } from '../../components/AddWorldForm';
 import { Button } from '../../components/Button';
-import { TopBarSearch } from './TopBarSearch';
 import { useAuth } from '../../contexts/AuthProvider';
+import { TopBarSearch } from './TopBarSearch';
 
 export const TopNav = () => {
   const { signOutUser } = useAuth();
@@ -17,19 +17,18 @@ export const TopNav = () => {
 
   return (
     <nav className="top__bar__navigation">
-      <section className='top__bar__navigation__buttons'>
+      <section className="top__bar__navigation__buttons">
         <Button
-          className="button"
           label="add"
-          size="large"
+          appearance="primary"
           onClick={() => {
             setAddForm(true);
           }}
         />
-        <Link to={'/learn'} className="button">
+        <Link to={'/learn'} className="button primary-button">
           <span>learn</span>
         </Link>
-        <Button label="sign out" onClick={onSignOut} appearance="" />
+        <Button label="sign out" onClick={onSignOut} appearance="primary" />
         {addForm && <AddWordForm onCancel={setAddForm} />}
       </section>
       <TopBarSearch />

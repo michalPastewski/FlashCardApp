@@ -16,6 +16,8 @@ export const AddWordForm = ({ onCancel }) => {
 
   const createWordData = () => {
     const wordData = {
+      id: Date.now().toString(),
+      date: new Date().toLocaleDateString(),
       word: wordInput.current.value,
       translation: translationInput.current.value,
       synonyms: synonymsInput.current.value,

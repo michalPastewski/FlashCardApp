@@ -9,7 +9,7 @@
    
    &--label {
       padding-left: $g-medium; 
-      font-size: $f-normal;
+      font-size: var(--f-regular);
    }
 
    &--input {

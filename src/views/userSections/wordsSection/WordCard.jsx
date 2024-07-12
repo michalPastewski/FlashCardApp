@@ -1,22 +1,38 @@
 import { useState } from 'react';
-import arrow from '../../../assets/arrow-down-sign-navigate.png';
+import { BasicCardView } from './BasicCardView';
+import { FullCardView } from './FullCardView';
 
-export const WordCard = ({ word, translation }) => {
-  const [isTranslation, setIsTranslation] = useState(false);
+const cardExpandedInitialState = {
+  isExpand: false,
+  topPosition: null,
+  leftPosition: null,
+};
 
-  const handleCardStatus = (status) => {
-    setIsTranslation(status);
+export const WordCard = ({ wordData, id }) => {
+  const [isCardExpanded, setIsCardExpanded] = useState(
+    cardExpandedInitialState
+  );
+
+  const cardExpandedStateReset = () => {
+    setIsCardExpanded(cardExpandedInitialState);
   };
 
   return (
-    <div
-      className="words__card"
-      onClick={() => handleCardStatus(!isTranslation)}
-      onMouseLeave={() => setTimeout(() => setIsTranslation(false), 500)}>
-      <p className="words__card--text">{!isTranslation ? word : translation}</p>
-      <div className="words__card__content">
-        <img src={arrow} className="words__card__content--icon" />
-      </div>
-    </div>
+    <>
+      <BasicCardView
+        cardData={wordData}
+        id={id}
+        cardExpand={setIsCardExpanded}
+      />
+
+      {isCardExpanded.isExpanded && (
+        <FullCardView
+          id={id}
+          cardPosition={isCardExpanded}
+          cardData={wordData}
+          onClose={cardExpandedStateReset}
+        />
+      )}
+    </>
   );
 };

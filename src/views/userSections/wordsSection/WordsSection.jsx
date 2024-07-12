@@ -4,7 +4,7 @@ import './wordsSection.style.scss';
 
 export const WordSection = () => {
   return (
-    <article className="words">
+    <article className="words__section">
       <WordList />
     </article>
   );

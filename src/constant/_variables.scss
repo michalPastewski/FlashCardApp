@@ -40,7 +40,8 @@ $button-radius: 3px;
 $regular-shadow:  0 0 20px -3px $primary-color;
 $small-shadow:  0 0 15px -3px $primary-color;
 
-html {
+* {
+   --top-bar-height: 75px;
 //colors
    --primary-dark-color: #00487C;
    --primary-color: #0365AB;

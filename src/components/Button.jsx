@@ -4,6 +4,9 @@ export const Button = ({ label, ...otherProps }) => {
   let buttonStyle = '';
 
   switch (otherProps.appearance) {
+    case 'primary': 
+      buttonStyle = 'primary-button';
+      break;
     case 'secondary':
       buttonStyle = 'secondary-button';
       break;
@@ -12,6 +15,9 @@ export const Button = ({ label, ...otherProps }) => {
       break;
     case 'revers':
       buttonStyle = 'revers-button';
+      break;
+    case 'delete':
+      buttonStyle = 'delete-button';
       break;
   }
   return (

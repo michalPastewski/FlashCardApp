@@ -20,8 +20,7 @@ export const WordList = () => {
       {wordsCollection.length > 0 ? (
         wordsCollection.map((item) => (
           <WordCard
-            word={item.word}
-            translation={item.translation}
+            wordData={item}
             key={item.id}
             id={item.id}
           />
