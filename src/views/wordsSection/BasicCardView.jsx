@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import expandArrow from '../../../assets/arrow-down-sign-navigate.png';
+import expandArrow from '../../assets/arrow-down-sign-navigate.png';
 
 export const BasicCardView = ({ cardData, id, cardExpand }) => {
   const { word, translation } = cardData;

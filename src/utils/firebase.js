@@ -42,8 +42,7 @@ export const initWordsCollection = async (db, userID) => {
   };
 
   const batch = writeBatch(db);
-  const collectionRef = collection(db, `users/${userID}/words`);
-  const docRef = doc(collectionRef, initialWord.id);
+  const docRef = doc(getCollectionDef(userId), initialWord.id);
 
   batch.set(docRef, initialWord);
   await batch.commit();
@@ -52,8 +51,7 @@ export const initWordsCollection = async (db, userID) => {
 // Add words to the database.
 export const addNewWord = async (userId, wordData) => {
   const batch = writeBatch(db);
-  const collectionRef = collection(db, `users/${userId}/words`);
-  const docRef = doc(collectionRef, wordData.id);
+  const docRef = doc(getCollectionDef(userId), wordData.id);
 
   batch.set(docRef, wordData);
   await batch.commit();
@@ -63,9 +61,8 @@ export const addNewWord = async (userId, wordData) => {
 
 // Fetch words list from database.
 export const getWordsList = async (userId) => {
-  const collectionRef = collection(db, `users/${userId}/words`);
   try {
-    const querySnapshot = await getDocs(collectionRef);
+    const querySnapshot = await getDocs(getCollectionDef(userId));
     const docs = [];
     querySnapshot.forEach((doc) => {
       docs.push({ id: doc.id, ...doc.data() });
@@ -80,8 +77,7 @@ export const getWordsList = async (userId) => {
 
 export const updateWordData = async (userId, wordId, newData) => {
   try {
-    const collectionRef = collection(db, `users/${userId}/words`);
-    const docRef = doc(collectionRef, wordId);
+    const docRef = doc(getCollectionDef(userId), wordId);
     await updateDoc(docRef, newData);
     console.log('The word was updated');
   } catch (error) {
@@ -92,10 +88,13 @@ export const updateWordData = async (userId, wordId, newData) => {
 //delete word
 export const deleteWord = async (userId, wordId) => {
   try {
-    const collectionRef = collection(db, `users/${userId}/words`);
-    await deleteDoc(doc(collectionRef, wordId));
+    await deleteDoc(doc(getCollectionDef(userId), wordId));
     console.info(`The word was deleted`);
   } catch (error) {
     console.error('Failed to delete document:', error);
   }
 };
+
+function getCollectionDef(userId) {
+  return collection(db, `users/${userId}/words`);
+}

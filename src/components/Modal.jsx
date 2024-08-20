@@ -1,6 +1,5 @@
 import './modal.style.scss';
 
-
 export const Modal = ({ children }) => {
   return (
     <div className="modal">

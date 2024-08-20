@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { useAuth } from '../../../contexts/AuthProvider';
-import { useData } from '../../../contexts/DataProvider';
+import { useAuth } from '../../contexts/AuthProvider';
+import { useData } from '../../contexts/DataProvider';
 import { WordCard } from './WordCard';
 
 import './wordsSection.style.scss';

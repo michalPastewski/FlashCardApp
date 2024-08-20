@@ -1,4 +1,4 @@
-@use '../../../constant/variables' as *;
+@use '../../constant/variables.scss' as *;
 .words__section {
    width: 99vw;
    padding: var(--g-extra-large) var(--g-medium);
