@@ -11,9 +11,8 @@ export const DataProvider = ({ children }) => {
 
   const getWordsCollection = async () => {
     if (currentUser) {
-      return getWordsList(currentUser.uid).then((resp) =>
-        setWordsCollection(resp)
-      );
+      return getWordsList(currentUser.uid)
+        .then((resp) => setWordsCollection(resp));
     }
 
     return [];

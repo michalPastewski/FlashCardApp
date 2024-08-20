@@ -1,0 +1,130 @@
+@use '../../constant/variables.scss' as *;
+.words__section {
+   width: 99vw;
+   padding: var(--g-extra-large) var(--g-medium);
+
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-evenly;
+}
+.word {
+   width: 99vw;
+   padding: var(--g-extra-large) var(--g-medium);
+
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-evenly;
+
+      &__card {
+      width: 150px;
+      height: 50px;
+      margin: var(--g-large);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-bottom: solid 1px var(--primary-color);
+      border-radius: var(--border-radius); 
+
+      box-shadow: 0 0 8px 0 var(--card-shadow-color);
+
+      &--text {
+         width: 85%;
+         margin: 0 var(--g-normal);
+
+         text-align: center;
+      }
+
+      &__content {
+         width: 15px;
+         height: 15px;
+         margin: 0 var(--g-medium) var(--g-medium) 0;
+
+         align-self: flex-end;
+         text-align: center;
+         border-radius: 5px;
+
+         &:hover {
+            background-color: var(--accent-color);
+         }
+
+         &--icon {
+            width: 100%;
+            height: 100%;
+            padding: var(--g-small);
+
+            &.expanded {
+               transform: rotate(180deg);
+             }
+         }
+
+         &.expanded {
+            align-self: flex-start;
+         }
+      }
+   }
+}
+
+.unextended {
+   &:hover {
+      border-color: var(--accent-color);
+      box-shadow: 0 0 5px 0 var( --accent-color);
+   }
+   &:active {
+      box-shadow: inset 0 0 8px 0 var(--card-shadow-color);
+   }
+}
+
+.expanded {
+   &__wrapper {
+      position: absolute;
+      top: 75px;
+      left: 0;
+
+      width: 100vw;
+      height: calc(100% - 75px);
+      z-index: 11;
+   }
+   &__content{
+      position: absolute;
+      width: 300px;
+      height: 280px;
+      margin: 0;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+
+      border-bottom-width: 2px;
+      background-color: var(--base-color);
+
+      &__words {
+         width: 280px;
+         margin-top: var(--g-large);
+         margin-left: var(--g-extra-large);
+
+         &--wrapper {
+            display: flex;
+            flex-direction: column;
+         }
+
+         &--word {
+            margin: var(--g-normal) 0;
+            padding-left: var(--g-medium);
+            border-left: solid var(--g-extra-small) var(--primary-light-color);
+         }
+
+         &__buttons {
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            margin: var(--g-large) var(--g-medium) 0;
+
+            &.edit {
+               margin: 0;
+            }
+         }
+      }
+   }
+}

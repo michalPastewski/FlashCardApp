@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { InfoBox } from '../../components/InfoBox';
-import { SectionWrapper } from '../../components/MainSectionWrapper';
-import { useAuth } from '../../contexts/AuthProvider';
+import { InfoBox } from '../components/InfoBox';
+import { SectionWrapper } from '../components/MainSectionWrapper';
+import { useAuth } from '../contexts/AuthProvider';
 import { Intro } from './IntroSection';
 
-import '../../App.scss';
+import '../App.scss';
 import './mainViews.style.scss';
 
 export const MainView = () => {

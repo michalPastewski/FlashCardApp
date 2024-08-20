@@ -4,28 +4,19 @@
   min-width: 80px;
   min-height: 30px;
   margin: var(--g-small) var(--g-medium);
-  background-color: transparent;
-
+  
   display: flex;
   justify-content: center;
   align-items: center;
 
   border: solid 1px transparent;
   border-radius: var(--border-radius);
-
-  color: var(--accent-color);
+  
   font-size: clamp(var(--f-regular), 2.2vw , var(--f-small));
-  letter-spacing: 1px;
-
-   &:hover {
-      border-color: var(--primary-light-color);
-      color: var(--base-color);
-   }
 
    &:active {
       background-color: var(--primary-color);
    }
-
    &:disabled {
       background-color: #E8E8E8; 
       border-color: #aeb1b3;
@@ -34,26 +25,41 @@
 
 }
 
-.secondary-button {
-   min-height: 50px;
-   margin: $g-normal;
-   background-color: var(--primary-color);
+.primary-button {
+   background-color: transparent;
+   color: var(--accent-color);
+   &:hover {
+      border-color: var(--primary-light-color);
+      color: var(--base-color);
+   }
 
-   color: var(--text-color);
-   font-size: $f-large;
+}
+
+.secondary-button {
+   background-color: transparent;
+   color: var(--primary-light-color);
 
    &:hover {
-      color: $primary-color;
+      color: var(--accent-color);
    }
 }
 
 .submit-button {
   background-color: var(--accent-color);
-  color: var(--text-color);
 
   &:hover {
-   background-color: var(--base-color);
+      background-color: var(--base-color);
+      border-color: var(--accent-color);
+   }
 }
+
+.delete-button {
+   background-color: var(--base-color);
+   color: var(--warning-color);
+
+   &:hover {
+      border-color: var(--warning-color);
+   }
 }
 
 .revers-button {

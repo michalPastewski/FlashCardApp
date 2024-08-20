@@ -1,4 +1,4 @@
-@use '../../constant//variables' as *;
+@use '../constant//variables' as *;
 .main__view {
    &--loading {
       padding: $g-extra-large;

@@ -2,9 +2,11 @@ import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import {
   collection,
+  deleteDoc,
   doc,
   getDocs,
   getFirestore,
+  updateDoc,
   writeBatch,
 } from 'firebase/firestore';
 // import { getAnalytics } from "firebase/analytics";
@@ -31,15 +33,16 @@ export const auth = getAuth();
 
 export const initWordsCollection = async (db, userID) => {
   const initialWord = {
+    id: Date.now().toString(),
+    date: new Date().toLocaleDateString(),
     word: 'hello',
-    translation: 'cześć',
+    translation: '',
     synonyms: '',
     examples: '',
   };
 
   const batch = writeBatch(db);
-  const collectionRef = collection(db, `users/${userID}/words`);
-  const docRef = doc(collectionRef, initialWord.word);
+  const docRef = doc(getCollectionDef(userId), initialWord.id);
 
   batch.set(docRef, initialWord);
   await batch.commit();
@@ -48,8 +51,7 @@ export const initWordsCollection = async (db, userID) => {
 // Add words to the database.
 export const addNewWord = async (userId, wordData) => {
   const batch = writeBatch(db);
-  const collectionRef = collection(db, `users/${userId}/words`);
-  const docRef = doc(collectionRef, wordData.word);
+  const docRef = doc(getCollectionDef(userId), wordData.id);
 
   batch.set(docRef, wordData);
   await batch.commit();
@@ -59,9 +61,8 @@ export const addNewWord = async (userId, wordData) => {
 
 // Fetch words list from database.
 export const getWordsList = async (userId) => {
-  const collectionRef = collection(db, `users/${userId}/words`);
   try {
-    const querySnapshot = await getDocs(collectionRef);
+    const querySnapshot = await getDocs(getCollectionDef(userId));
     const docs = [];
     querySnapshot.forEach((doc) => {
       docs.push({ id: doc.id, ...doc.data() });
@@ -71,3 +72,29 @@ export const getWordsList = async (userId) => {
     console.error(e.message);
   }
 };
+
+// update word data
+
+export const updateWordData = async (userId, wordId, newData) => {
+  try {
+    const docRef = doc(getCollectionDef(userId), wordId);
+    await updateDoc(docRef, newData);
+    console.log('The word was updated');
+  } catch (error) {
+    console.error('There is problem with update word data', error);
+  }
+};
+
+//delete word
+export const deleteWord = async (userId, wordId) => {
+  try {
+    await deleteDoc(doc(getCollectionDef(userId), wordId));
+    console.info(`The word was deleted`);
+  } catch (error) {
+    console.error('Failed to delete document:', error);
+  }
+};
+
+function getCollectionDef(userId) {
+  return collection(db, `users/${userId}/words`);
+}

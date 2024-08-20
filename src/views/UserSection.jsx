@@ -1,4 +1,4 @@
-import { SectionWrapper } from '../../components/MainSectionWrapper';
+import { SectionWrapper } from '../components/MainSectionWrapper';
 import { WordSection } from './wordsSection/WordsSection';
 
 export const UserSection = () => {

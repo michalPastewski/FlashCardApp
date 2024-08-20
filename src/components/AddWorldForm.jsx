@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { useAuth } from '../contexts/AuthProvider';
 import { useData } from '../contexts/DataProvider';
 import { addNewWord } from '../utils/firebase';
+
 import { Button } from './Button';
 import { FormInput } from './FormInput';
 import { Modal } from './Modal';
@@ -15,22 +16,21 @@ export const AddWordForm = ({ onCancel }) => {
   const examplesInput = useRef();
 
   const createWordData = () => {
-    const wordData = {
+    return {
+      id: Date.now().toString(),
+      date: new Date().toLocaleDateString(),
       word: wordInput.current.value,
       translation: translationInput.current.value,
       synonyms: synonymsInput.current.value,
       examples: examplesInput.current.value,
     };
-
-    return wordData;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const newWord = createWordData();
-      await addNewWord(currentUser.uid, newWord);
+      await addNewWord(currentUser.uid, createWordData());
       await getWordsCollection();
       onCancel(false);
     } catch (error) {

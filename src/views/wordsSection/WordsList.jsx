@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { useAuth } from '../../../contexts/AuthProvider';
-import { useData } from '../../../contexts/DataProvider';
+import { useAuth } from '../../contexts/AuthProvider';
+import { useData } from '../../contexts/DataProvider';
 import { WordCard } from './WordCard';
 
 import './wordsSection.style.scss';
@@ -20,8 +20,7 @@ export const WordList = () => {
       {wordsCollection.length > 0 ? (
         wordsCollection.map((item) => (
           <WordCard
-            word={item.word}
-            translation={item.translation}
+            wordData={item}
             key={item.id}
             id={item.id}
           />
