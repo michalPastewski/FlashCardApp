@@ -60,14 +60,20 @@ export const EditFullCardView = ({ cardData, id, closeEdit }) => {
       <FormInput label="examples" defaultValue={examples} ref={examplesInput} />
       <div className="expanded__content__words__buttons">
         <Button
+          type="button"
           label="delete"
           appearance="delete"
           onClick={(e) => {
             handleOnDelete(e);
           }}
         />
-        <Button label="cancel" appearance="secondary" onClick={closeEdit} />
-        <Button label="save" appearance="submit" />
+        <Button
+          type="button"
+          label="cancel"
+          appearance="secondary"
+          onClick={closeEdit}
+        />
+        <Button type="submit" label="save" appearance="submit" />
       </div>
     </form>
   );
