@@ -1,12 +1,13 @@
 @use '../constant/variables' as *;
 
 .form__input {
+   position: relative;
    width: 95%;
    margin-top: $g-large;
 
    display: flex;
    flex-direction: column;
-   
+     
    &--label {
       padding-left: $g-medium; 
       font-size: var(--f-regular);
@@ -17,14 +18,16 @@
       font-size: $f-normal;
       
       border-style: none none solid none;
-      border-color: $primary-color;
+      border-color: var(--disabled-color);
       border-bottom-width: 1px;
 
-      &:focus {
-         box-sizing: border-box;
+      transition: transform 0.2s;
 
+      &:focus {
+         transform: scale(1.02, 1.2);
+         box-sizing: border-box;
          border-color: $secondary-color;
-         border-bottom-width: 2px;
+         border-bottom-width: 1px;
          outline: none;
       }
    }

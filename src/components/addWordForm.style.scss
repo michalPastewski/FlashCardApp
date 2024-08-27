@@ -1,0 +1,14 @@
+// @use '../constant/variables' as *;
+
+.add__form {
+   margin-left: var(--g-extra-large);
+
+   &__buttons {
+      width: 100%;
+      margin: var(--g-extra-large) var(--g-extra-large) 0 0;
+      padding-right: var(--g-extra-large);
+
+      display: flex;
+      justify-content: end;
+   }
+}

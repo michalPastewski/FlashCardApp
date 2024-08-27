@@ -7,6 +7,8 @@ import { Button } from './Button';
 import { FormInput } from './FormInput';
 import { Modal } from './Modal';
 
+import './addWordForm.style.scss';
+
 export const AddWordForm = ({ onCancel }) => {
   const { currentUser } = useAuth();
   const { getWordsCollection } = useData();
