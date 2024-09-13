@@ -24,7 +24,7 @@
       transition: transform 0.2s;
 
       &:focus {
-         transform: scale(1.02, 1.2);
+         transform: scale(1.02, 1.05);
          box-sizing: border-box;
          border-color: $secondary-color;
          border-bottom-width: 1px;

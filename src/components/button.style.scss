@@ -1,10 +1,9 @@
 @use '../constant/variables' as *;
 
 .button {
-  min-width: 80px;
-  min-height: 30px;
+ 
   margin: var(--g-small) var(--g-medium);
-  
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,6 +67,16 @@
       background-color: $hover-color;
       color:$primary-color;
    }
+}
+
+.small-button {
+   width: 50px;
+   padding: var(--g-small);
+}
+
+.normal-button {
+   min-width: 80px;
+   min-height: 30px;
 }
 
 .large-button {

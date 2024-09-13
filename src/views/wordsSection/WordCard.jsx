@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { BasicCardView } from './BasicCardView';
-import { FullCardView } from './FullCardView';
+import { FullCardContent } from './FullCardContent';
 
 const cardExpandedInitialState = {
   isExpand: false,
@@ -18,7 +18,7 @@ export const WordCard = ({ wordData, id }) => {
   };
 
   return (
-    <>
+    <section className="word__card">
       <BasicCardView
         cardData={wordData}
         id={id}
@@ -26,13 +26,13 @@ export const WordCard = ({ wordData, id }) => {
       />
 
       {isCardExpanded.isExpanded && (
-        <FullCardView
+        <FullCardContent
           id={id}
           cardPosition={isCardExpanded}
           cardData={wordData}
           onClose={cardExpandedStateReset}
         />
       )}
-    </>
+    </section>
   );
 };

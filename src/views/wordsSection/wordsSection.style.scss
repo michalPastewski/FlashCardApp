@@ -1,24 +1,23 @@
 @use '../../constant/variables.scss' as *;
 .words__section {
-   width: 99vw;
+   width: 100%;
    padding: var(--g-extra-large) var(--g-medium);
 
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: space-evenly;
+   display:grid;
+   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+   gap: var(--g-extra-large);
 }
+
 .word {
    width: 99vw;
    padding: var(--g-extra-large) var(--g-medium);
 
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: space-evenly;
+   display: grid;
+   justify-content: center;
+   align-items: center;
 
       &__card {
-      width: 150px;
-      height: 50px;
-      margin: var(--g-large);
+      min-height: 60px;
 
       display: flex;
       align-items: center;
@@ -29,50 +28,61 @@
 
       box-shadow: 0 0 8px 0 var(--card-shadow-color);
 
-      &--text {
-         width: 85%;
-         margin: 0 var(--g-normal);
-
-         text-align: center;
+      &:hover {
+         border-color: var(--accent-color);
+         box-shadow: 0 0 5px 0 var( --accent-color);
+      }
+      &:active {
+         box-shadow: inset 0 0 8px 0 var(--card-shadow-color);
       }
 
-      &__content {
-         width: 15px;
-         height: 15px;
-         margin: 0 var(--g-medium) var(--g-medium) 0;
+      &__basic_view {
+         width: 95%;
+         height: 85%;
 
-         align-self: flex-end;
-         text-align: center;
-         border-radius: 5px;
-
-         &:hover {
-            background-color: var(--accent-color);
-         }
-
-         &--icon {
-            width: 100%;
-            height: 100%;
-            padding: var(--g-small);
-
-            &.expanded {
-               transform: rotate(180deg);
-             }
-         }
+         display: flex;
+         align-items: center;
+         justify-content: center;
 
          &.expanded {
-            align-self: flex-start;
+            box-shadow: none;
+         }
+
+         &--text {
+            width: 85%;
+            margin: 0 var(--g-normal);
+            text-align: center;
+         }
+
+         &__button {
+            width: 18px;
+            height: 18px;
+            margin: 0 var(--g-medium) var(--g-medium) 0;
+
+            align-self: flex-end;
+            text-align: center;
+            border-radius: 5px;
+
+            &:hover {
+               background-color: var(--accent-color);
+            }
+
+            &--icon {
+               width: 100%;
+               height: 100%;
+               padding: var(--g-small);
+
+               &.expanded {
+                  transform: rotate(180deg);
+               }
+            }
+
+            &.expanded {
+               margin: var(--g-small) var(--g-normal) 0 0;
+               align-self: flex-start;
+            }
          }
       }
-   }
-}
-
-.unextended {
-   &:hover {
-      border-color: var(--accent-color);
-      box-shadow: 0 0 5px 0 var( --accent-color);
-   }
-   &:active {
-      box-shadow: inset 0 0 8px 0 var(--card-shadow-color);
    }
 }
 
@@ -86,9 +96,9 @@
       height: calc(100% - 75px);
       z-index: 11;
    }
-   &__content{
-      position: absolute;
-      width: 300px;
+   &__content {
+      position: relative;
+      // width: 204px;
       height: 280px;
       margin: 0;
 
@@ -96,35 +106,40 @@
       flex-direction: column;
       justify-content: start;
 
-      border-bottom-width: 2px;
       background-color: var(--base-color);
+      border-bottom-width: 2px;
+      border-color: var(--accent-color);
+
+      box-shadow: 0 0 5px 0 var( --accent-color);
 
       &__words {
-         width: 280px;
+         // width: 100%;
          margin-top: var(--g-large);
-         margin-left: var(--g-extra-large);
+         // margin-left: var(--g-extra-large);
 
          &--wrapper {
+            width: 100%;
             display: flex;
             flex-direction: column;
          }
 
          &--word {
-            margin: var(--g-normal) 0;
+            margin: var(--g-large) 0 0 var(--g-extra-large);
             padding-left: var(--g-medium);
             border-left: solid var(--g-extra-small) var(--primary-light-color);
          }
 
          &__buttons {
+            margin: var(--g-large) var(--g-medium) 0;
+
             display: flex;
             justify-content: end;
             align-items: center;
-            margin: var(--g-large) var(--g-medium) 0;
-
-            &.edit {
-               margin: 0;
-            }
          }
+      }
+
+      &__form {
+         padding-left: var(--g-large);
       }
    }
 }

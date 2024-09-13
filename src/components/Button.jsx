@@ -2,9 +2,10 @@ import './button.style.scss';
 
 export const Button = ({ label, ...otherProps }) => {
   let buttonStyle = '';
+  let buttonSize = '';
 
   switch (otherProps.appearance) {
-    case 'primary': 
+    case 'primary':
       buttonStyle = 'primary-button';
       break;
     case 'secondary':
@@ -20,10 +21,22 @@ export const Button = ({ label, ...otherProps }) => {
       buttonStyle = 'delete-button';
       break;
   }
+
+  switch (otherProps.size) {
+    case 'small':
+      buttonSize = 'small-button';
+      break;
+    case 'large':
+      buttonStyle = 'large-button';
+      break;
+    default:
+      buttonSize = 'normal-button';
+  }
+
   return (
     <button
       className={`button
-            ${otherProps.size === 'large' ? 'large-button' : ''} 
+            ${buttonSize} 
             ${buttonStyle}`}
       {...otherProps}>
       {label}

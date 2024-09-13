@@ -47,6 +47,7 @@ export const EditFullCardView = ({ cardData, id, closeEdit }) => {
 
   return (
     <form
+    className='expanded__content__form'
       onSubmit={(e) => {
         handleOnUpdateWordData(e);
       }}>
@@ -63,6 +64,7 @@ export const EditFullCardView = ({ cardData, id, closeEdit }) => {
           type="button"
           label="delete"
           appearance="delete"
+          size="small"
           onClick={(e) => {
             handleOnDelete(e);
           }}
@@ -71,9 +73,10 @@ export const EditFullCardView = ({ cardData, id, closeEdit }) => {
           type="button"
           label="cancel"
           appearance="secondary"
+          size="small"
           onClick={closeEdit}
         />
-        <Button type="submit" label="save" appearance="submit" />
+        <Button type="submit" label="save" appearance="submit" size="small"/>
       </div>
     </form>
   );
