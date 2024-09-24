@@ -56,7 +56,7 @@ export const addNewWord = async (userId, wordData) => {
   batch.set(docRef, wordData);
   await batch.commit();
 
-  console.log('Word was added', docRef);
+  console.log('Word was added');
 };
 
 // Fetch words list from database.

@@ -13,17 +13,13 @@ export const WordList = () => {
     if (currentUser) {
       getWordsCollection();
     }
-  }, [currentUser, wordsCollection.length]);
+  }, [currentUser, wordsCollection]);
 
   return (
     <>
       {wordsCollection.length > 0 ? (
         wordsCollection.map((item) => (
-          <WordCard
-            wordData={item}
-            key={item.id}
-            id={item.id}
-          />
+          <WordCard wordData={item} key={item.id} id={item.id} />
         ))
       ) : (
         <div>Loading</div>

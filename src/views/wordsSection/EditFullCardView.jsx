@@ -9,7 +9,6 @@ import { deleteWord, updateWordData } from '../../utils/firebase';
 export const EditFullCardView = ({ cardData, id, closeEdit }) => {
   const { word, translation, synonyms, examples } = cardData;
   const { currentUser } = useAuth();
-  const { getWordsCollection } = useData();
 
   const wordInput = useRef(word);
   const translationInput = useRef();
@@ -35,19 +34,17 @@ export const EditFullCardView = ({ cardData, id, closeEdit }) => {
 
     e.preventDefault();
     await updateWordData(currentUser.uid, id, newData);
-    await getWordsCollection();
     closeEdit(e);
   };
 
   const handleOnDelete = async (e) => {
     e.preventDefault();
     deleteWord(currentUser.uid, id);
-    getWordsCollection();
   };
 
   return (
     <form
-    className='expanded__content__form'
+      className="expanded__content__form"
       onSubmit={(e) => {
         handleOnUpdateWordData(e);
       }}>
@@ -76,7 +73,7 @@ export const EditFullCardView = ({ cardData, id, closeEdit }) => {
           size="small"
           onClick={closeEdit}
         />
-        <Button type="submit" label="save" appearance="submit" size="small"/>
+        <Button type="submit" label="save" appearance="submit" size="small" />
       </div>
     </form>
   );

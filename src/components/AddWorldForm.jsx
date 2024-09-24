@@ -33,7 +33,6 @@ export const AddWordForm = ({ onCancel }) => {
 
     try {
       await addNewWord(currentUser.uid, createWordData());
-      await getWordsCollection();
       onCancel(false);
     } catch (error) {
       console.error(error);
@@ -48,7 +47,6 @@ export const AddWordForm = ({ onCancel }) => {
           type="text"
           autoFocus
           ref={wordInput}
-          onChange={() => console.log(wordInput.current.value)}
         />
         <FormInput label="translation" type="text" ref={translationInput} />
         <FormInput label="synonyms" type="text" ref={synonymsInput} />
