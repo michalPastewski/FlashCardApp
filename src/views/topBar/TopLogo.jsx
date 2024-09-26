@@ -1,5 +1,5 @@
 import logo from '../../assets/logo.png';
-import { content } from '../../constant/contents';
+import { CONTENT } from '../../constant/contents';
 import './topBar.style.scss';
 
 export const TopLogo = () => {
@@ -7,7 +7,7 @@ export const TopLogo = () => {
     <div className="top__bar__logo">
       <img src={logo} alt="logo" className="top__bar__logo--image" />
       <p>
-        <i>{content.logoDescription}</i>
+        <i>{CONTENT.TOP_BAR.LOGO_DESCRIPTION}</i>
       </p>
     </div>
   );

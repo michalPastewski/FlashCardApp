@@ -1,18 +1,37 @@
 import { NavLink } from 'react-router-dom';
+import { CONTENT } from '../constant/contents';
+import './introSection.style.scss';
 
 export const Intro = () => {
+  const { INTRO_CONTENT } = CONTENT;
   return (
     <>
-      <h2>Introduction to FlashCards App</h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Id deserunt
-        laudantium consequuntur dolore maxime sint eius, possimus rem, delectus
-        laboriosam doloribus dicta in est nam aliquam ipsam? Repellendus,
-        veritatis ipsum?
-      </p>
-      <NavLink to="/login" className="button">
-        SIGN IN
-      </NavLink>
+      <article className="intro__content">
+        <header className="intro__header">
+          <p className="intro__header--paragraph">
+            {INTRO_CONTENT.HEADER_PARAGRAPH}
+          </p>
+        </header>
+        <section className="intro__description">
+          <h3 className="intro__description--header">
+            {INTRO_CONTENT.DESCRIPTION_HEADER}
+          </h3>
+          <p className="intro__description--paragraph one">
+            {INTRO_CONTENT.DESCRIPTION_PARA_ONE}
+          </p>
+          <p className="intro__description--paragraph two">
+            {INTRO_CONTENT.DESCRIPTION_PARA_TWO}
+          </p>
+        </section>
+        <section className="intro__buttons">
+          <NavLink to="/signup" className="button">
+            SIGN UP
+          </NavLink>
+          <NavLink to="/signin" className="button">
+            SIGN IN
+          </NavLink>
+        </section>
+      </article>
     </>
   );
 };

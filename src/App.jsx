@@ -14,7 +14,8 @@ function App() {
       <Routes>
         <Route path="/">
           <Route index element={<MainView />} />
-          <Route path="login" element={<LoginSection />} />
+          <Route path="signin" element={<LoginSection />} />
+          <Route path="signup" element={<LoginSection loginState={false}/>} />
           <Route path="user" element={<UserSection />} />
         </Route>
         <Route path="/learn" element={<LearnSection />} />
