@@ -9,17 +9,17 @@ import '../App.scss';
 import './mainViews.style.scss';
 
 export const MainView = () => {
-  const { currentUser } = useAuth();
+  const { session } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (currentUser) navigate('/user');
-  }, [currentUser]);
+    if (session) navigate('/user');
+  }, [session]);
 
   return (
     <SectionWrapper className="content">
       <div className="main__view--loading">
-        {!currentUser && <Intro />}
+        {!session && <Intro />}
         <InfoBox style="warning" />
       </div>
     </SectionWrapper>

@@ -6,14 +6,14 @@ import { WordCard } from './WordCard';
 import './wordsSection.style.scss';
 
 export const WordList = () => {
-  const { currentUser } = useAuth();
+  const { session } = useAuth();
   const { wordsCollection, getWordsCollection } = useData();
 
   useEffect(() => {
-    if (currentUser) {
+    if (session) {
       getWordsCollection();
     }
-  }, [currentUser, wordsCollection]);
+  }, [session, wordsCollection]);
 
   return (
     <>
