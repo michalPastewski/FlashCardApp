@@ -3,15 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '../../components/Button';
 import { FormInput } from '../../components/FormInput';
 import { useAuth } from '../../contexts/AuthProvider';
-// import { InfoBox } from '../../components/InfoBox';
 
 import './loginSection.style.scss';
 
 export const SignUp = ({ onBack }) => {
   const {
     createAuthUserWithEmailAndPassword,
-    createUserDocumentFromAuth,
-    currentUser,
   } = useAuth();
   const navigate = useNavigate();
 
@@ -33,7 +30,7 @@ export const SignUp = ({ onBack }) => {
         emailRef.current.value,
         passwordRef.current.value
       );
-      await createUserDocumentFromAuth(currentUser);
+      // await createUserDocumentFromAuth(currentUser);
 
       console.info('User was signed up successfully');
       navigate('/');

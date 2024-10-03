@@ -1,84 +1,54 @@
-import {
-  createUserWithEmailAndPassword,
-  onAuthStateChanged,
-  signInWithEmailAndPassword,
-  signOut,
-} from 'firebase/auth';
-import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { createContext, useContext, useEffect, useState } from 'react';
-import { auth, db, initWordsCollection } from '../utils/firebase';
+import { userAuthorization } from '../service/supabase_client';
 
 export const AuthContext = createContext();
 
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState(null);
+  const [session, setSession] = useState(null);
 
   const createAuthUserWithEmailAndPassword = async (email, password) => {
     if (!email || !password) return;
 
-    return await createUserWithEmailAndPassword(auth, email, password);
+    await userAuthorization.signUp({
+      email: email,
+      password: password,
+    });
   };
 
   const signInAuthUserWithEmailAndPassword = async (email, password) => {
     if (!email || !password) return;
 
-    return await signInWithEmailAndPassword(auth, email, password);
+    await userAuthorization.signInWithPassword({
+      email: email,
+      password: password,
+    });
   };
 
   const signOutUser = async () => {
-    await signOut(auth);
-    console.info('User is sign out');
-  };
-
-  const createUserDocumentFromAuth = async (
-    userAuth,
-    additionalInformation = {}
-  ) => {
-    if (!userAuth) return;
-
-    const userDocRef = doc(db, 'users', userAuth.uid);
-
-    const userSnapshot = await getDoc(userDocRef);
-
-    if (!userSnapshot.exists()) {
-      const { email } = userAuth;
-      const createdAt = new Date();
-
-      try {
-        await setDoc(userDocRef, {
-          email,
-          createdAt,
-          ...additionalInformation,
-        });
-        await initWordsCollection(db, userAuth.uid);
-      } catch (error) {
-        console.log(error.message);
-      }
-    }
-
-    return userDocRef;
+    await userAuthorization.signOut();
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        createUserDocumentFromAuth(user);
-      }
-      setCurrentUser(user);
+    userAuthorization.getSession().then(({ data: { session } }) => {
+      setSession(session);
     });
 
-    return unsubscribe;
+    const {
+      data: { subscription },
+    } = userAuthorization.onAuthStateChange((_event, session) => {
+      setSession(session);
+    });
+
+    return () => subscription.unsubscribe();
   }, []);
 
   const value = {
-    currentUser,
-    setCurrentUser,
+    session,
     createAuthUserWithEmailAndPassword,
     signInAuthUserWithEmailAndPassword,
     signOutUser,
-    createUserDocumentFromAuth,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

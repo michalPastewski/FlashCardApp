@@ -1,8 +1,5 @@
 import { useRef } from 'react';
-import { useAuth } from '../contexts/AuthProvider';
 import { useData } from '../contexts/DataProvider';
-import { addNewWord } from '../utils/firebase';
-
 import { Button } from './Button';
 import { FormInput } from './FormInput';
 import { Modal } from './Modal';
@@ -10,8 +7,7 @@ import { Modal } from './Modal';
 import './addWordForm.style.scss';
 
 export const AddWordForm = ({ onCancel }) => {
-  const { currentUser } = useAuth();
-  const { getWordsCollection } = useData();
+  const { addNewWord } = useData();
   const wordInput = useRef();
   const translationInput = useRef();
   const synonymsInput = useRef();
@@ -19,8 +15,6 @@ export const AddWordForm = ({ onCancel }) => {
 
   const createWordData = () => {
     return {
-      id: Date.now().toString(),
-      date: new Date().toLocaleDateString(),
       word: wordInput.current.value,
       translation: translationInput.current.value,
       synonyms: synonymsInput.current.value,
@@ -32,7 +26,7 @@ export const AddWordForm = ({ onCancel }) => {
     e.preventDefault();
 
     try {
-      await addNewWord(currentUser.uid, createWordData());
+      await addNewWord(createWordData());
       onCancel(false);
     } catch (error) {
       console.error(error);
@@ -42,12 +36,7 @@ export const AddWordForm = ({ onCancel }) => {
   return (
     <Modal>
       <form className="add__form" onSubmit={handleSubmit}>
-        <FormInput
-          label="new word"
-          type="text"
-          autoFocus
-          ref={wordInput}
-        />
+        <FormInput label="new word" type="text" autoFocus ref={wordInput} />
         <FormInput label="translation" type="text" ref={translationInput} />
         <FormInput label="synonyms" type="text" ref={synonymsInput} />
         <FormInput label="examples" type="text" ref={examplesInput} />
