@@ -1,7 +1,5 @@
-// import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { userAuthorization } from '../service/supabase_client';
-// import { auth, db, initWordsCollection } from '../utils/firebase';
 
 export const AuthContext = createContext();
 
@@ -17,8 +15,6 @@ export const AuthProvider = ({ children }) => {
       email: email,
       password: password,
     });
-
-    // return await createNewUserByEmailAndPassword(email, password);
   };
 
   const signInAuthUserWithEmailAndPassword = async (email, password) => {
@@ -50,7 +46,6 @@ export const AuthProvider = ({ children }) => {
 
   const value = {
     session,
-    setSession,
     createAuthUserWithEmailAndPassword,
     signInAuthUserWithEmailAndPassword,
     signOutUser,

@@ -1,14 +1,11 @@
 import { useRef } from 'react';
 import { Button } from '../../components/Button';
 import { FormInput } from '../../components/FormInput';
-import { useAuth } from '../../contexts/AuthProvider';
 import { useData } from '../../contexts/DataProvider';
-
-import { deleteWord, updateWordData } from '../../utils/firebase';
 
 export const EditFullCardView = ({ cardData, id, closeEdit }) => {
   const { word, translation, synonyms, examples } = cardData;
-  const { currentUser } = useAuth();
+  const { updateWordData, deleteWord } = useData();
 
   const wordInput = useRef(word);
   const translationInput = useRef();
@@ -33,13 +30,17 @@ export const EditFullCardView = ({ cardData, id, closeEdit }) => {
     };
 
     e.preventDefault();
-    await updateWordData(currentUser.uid, id, newData);
-    closeEdit(e);
+    try {
+      await updateWordData(newData, id);
+      closeEdit(e);
+    } catch (error) {
+      console.log('Update world items problem', error);
+    }
   };
 
   const handleOnDelete = async (e) => {
     e.preventDefault();
-    deleteWord(currentUser.uid, id);
+    deleteWord(id);
   };
 
   return (

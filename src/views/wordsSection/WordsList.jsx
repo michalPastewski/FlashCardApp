@@ -1,24 +1,21 @@
-import { useEffect } from 'react';
-import { useAuth } from '../../contexts/AuthProvider';
+import { useEffect, useState } from 'react';
 import { useData } from '../../contexts/DataProvider';
 import { WordCard } from './WordCard';
 
 import './wordsSection.style.scss';
 
 export const WordList = () => {
-  const { session } = useAuth();
-  const { wordsCollection, getWordsCollection } = useData();
+  const { wordsCollection } = useData();
+  const [wordsData, setWordsData] = useState(null);
 
   useEffect(() => {
-    if (session) {
-      getWordsCollection();
-    }
-  }, [session, wordsCollection]);
+    setWordsData(wordsCollection);
+  }, [wordsCollection]);
 
   return (
     <>
-      {wordsCollection.length > 0 ? (
-        wordsCollection.map((item) => (
+      {wordsData ? (
+        wordsData.map((item) => (
           <WordCard wordData={item} key={item.id} id={item.id} />
         ))
       ) : (

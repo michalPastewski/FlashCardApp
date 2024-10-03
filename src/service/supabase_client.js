@@ -7,3 +7,5 @@ const SUPABASE_KEY =
 export const supabase = createClient(CLIENT_URL, SUPABASE_KEY);
 
 export const userAuthorization = supabase.auth;
+
+export const userWordsData = supabase.from('words_list')
