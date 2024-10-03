@@ -17,7 +17,7 @@ export const TopBar = () => {
       {session ? (
         <TopNav />
       ) : (
-        <NavLink to="/login" className="button revers-button">
+        <NavLink to="/signin" className="button revers-button">
           sign in
         </NavLink>
       )}

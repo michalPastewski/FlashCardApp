@@ -5,8 +5,8 @@ import { SignUp } from './SingUp';
 
 import './loginSection.style.scss';
 
-export const LoginSection = () => {
-  const [isSignUp, setIsSignUp] = useState(true);
+export const LoginSection = ({ loginState = true }) => {
+  const [isSignUp, setIsSignUp] = useState(loginState);
 
   return (
     <SectionWrapper>
