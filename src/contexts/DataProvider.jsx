@@ -55,6 +55,8 @@ export const DataProvider = ({ children }) => {
   useEffect(() => {
     if (session) {
       getWordsCollection();
+    } else {
+      setWordsCollection([]);
     }
   }, [session]);
 
