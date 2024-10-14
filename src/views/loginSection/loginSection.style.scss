@@ -1,7 +1,7 @@
 @use '../../constant/variables' as *;
 
 .login__section {
-   width: min(455px, 93vw);
+   width: min(600px, 93vw);
    padding: $g-extra-large;
    background-color: $base-color;
    border-radius: $border-radius;
@@ -11,12 +11,18 @@
    }
 
    &--info {
-      margin-top: $g-large;
+      margin-top: var(--g-small);
       display: flex;
       flex-direction: column;
 
       align-items: flex-start;
       font-size: $f-small;
+   }
+
+   &--description {
+      display: flex;
+     justify-content: center;
+     align-items: center;
    }
     
    &--button {

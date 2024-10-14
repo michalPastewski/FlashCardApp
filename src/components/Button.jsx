@@ -3,6 +3,7 @@ import './button.style.scss';
 export const Button = ({ label, ...otherProps }) => {
   let buttonStyle = '';
   let buttonSize = '';
+  let display = otherProps.display ? otherProps.display : ''
 
   switch (otherProps.appearance) {
     case 'primary':
@@ -37,7 +38,8 @@ export const Button = ({ label, ...otherProps }) => {
     <button
       className={`button
             ${buttonSize} 
-            ${buttonStyle}`}
+            ${buttonStyle}
+            ${display}`}
       {...otherProps}>
       {label}
     </button>

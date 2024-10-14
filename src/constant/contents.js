@@ -1,7 +1,7 @@
 export const CONTENT = {
   TOP_BAR: {
     WELCOME_HEADER: 'HELLO',
-    WORD_SECTION_HEADER: 'WORDS',
+    WORD_HEADER: 'WORDS',
     LOGO_DESCRIPTION: 'Your own story of language',
   },
   INTRO_CONTENT: {

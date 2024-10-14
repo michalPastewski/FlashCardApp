@@ -50,17 +50,17 @@ export const SignIn = ({ handelSignUpButton }) => {
           required
         />
         <div className="login__section--info">
-          <p>
-            If you don't have a account, you can create it here:
-            <button
-              className="login__section--button"
-              type="button"
+          <p className="login__section--description">
+            If you do not have a account, you can create it here:
+            <Button
+              label="sign up"
+              appearance="secondary"
               onClick={() => handelSignUpButton(false)}>
               sign up
-            </button>
+            </Button>
           </p>
           <div className="login__section--submit">
-            <Button label="Sing in" appearance="submit" type="submit" />
+            <Button label="sing in" appearance="submit" type="submit" />
           </div>
           {/* <InfoBox style="warning" /> */}
         </div>

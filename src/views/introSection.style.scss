@@ -1,4 +1,4 @@
-.intro{
+.intro {
    &__content {
       margin-top: var(--g-extra-large);
    }
@@ -14,9 +14,7 @@
       }
    }
    
-   &__description {
-      margin-bottom: var(--g-extra-large);
-      
+   &__description {      
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       grid-template-rows: auto;
@@ -44,5 +42,16 @@
          grid-row: 3/4;
         }
       }
+   }
+
+   &__buttons {
+      margin-top: var(--g-extra-large);
+      padding-top: var(--g-extra-large);
+      display: flex;
+      gap: var(--g-extra-large);
+
+      max-width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
    }
 }

@@ -24,10 +24,10 @@ export const Intro = () => {
           </p>
         </section>
         <section className="intro__buttons">
-          <NavLink to="/signup" className="button">
+          <NavLink to="/signup" className="button normal-button secondary-button">
             SIGN UP
           </NavLink>
-          <NavLink to="/signin" className="button">
+          <NavLink to="/signin" className="button normal-button submit-button">
             SIGN IN
           </NavLink>
         </section>

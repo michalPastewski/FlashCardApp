@@ -44,6 +44,10 @@
        }
    }
 
+   &__button {
+      margin-right: var(--g-normal);
+   }
+
    &__navigation {
       width: 20vw;
       margin-top: var(--g-medium);

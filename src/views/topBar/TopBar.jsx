@@ -8,6 +8,7 @@ import './topBar.style.scss';
 
 export const TopBar = () => {
   const { session } = useAuth();
+  console.log(session);
 
   return (
     <section className="top__bar">
@@ -17,7 +18,7 @@ export const TopBar = () => {
       {session ? (
         <TopNav />
       ) : (
-        <NavLink to="/signin" className="button revers-button">
+        <NavLink to="/signin" className="top__bar__button button normal-button primary-button">
           sign in
         </NavLink>
       )}
