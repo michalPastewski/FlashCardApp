@@ -8,13 +8,9 @@
   font-family: var(--regular-font);
 
   .content {
+    width: 100%;
     height: inherit;
     padding: 0 $g-extra-large;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: $g-large;
     
     background-color: $base-color;
   }

@@ -2,10 +2,12 @@
 .words__section {
    width: 95vw;
    margin: 0 auto;
+   width: 95vw;
+   margin: 0 auto;
    padding: var(--g-extra-large) var(--g-medium);
 
    display:grid;
-   grid-template-columns: repeat(auto-fit, minmax(auto, 230px));
+   grid-template-columns: repeat(auto-fit, minmax(auto, 237px));
    gap: var(--g-extra-large);
    justify-content: center;
 }
