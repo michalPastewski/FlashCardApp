@@ -24,6 +24,7 @@ export const DataProvider = ({ children }) => {
       console.error(error);
     } else {
       setWordsCollection([...wordsCollection, ...data]);
+      setWordsData([...wordsData, ...data]);
       console.info('A new word was added');
     }
   };

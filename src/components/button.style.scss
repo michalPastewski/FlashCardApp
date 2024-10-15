@@ -28,8 +28,12 @@
    background-color: transparent;
    color: var(--accent-color);
    &:hover {
-      border-color: var(--primary-light-color);
+      background-color: var(--primary-color);
       color: var(--base-color);
+   }
+   &:active {
+      border-color: var(--primary-light-color);
+      background-color: transparent;
    }
 
 }

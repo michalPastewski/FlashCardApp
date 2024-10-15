@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import { Footer } from './components/Footer';
 import { LearnSection } from './views/LearnSection';
 import { LoginSection } from './views/loginSection/LoginSection';
 import { MainView } from './views/MainView';
@@ -20,7 +21,7 @@ function App() {
         </Route>
         <Route path="/learn" element={<LearnSection />} />
       </Routes>
-      <footer className="footer">Footer</footer>
+      <Footer />
     </main>
   );
 }

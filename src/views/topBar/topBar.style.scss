@@ -3,22 +3,22 @@
 .top__bar {
    width: 100vw;
    height: 75px;
+                                       position: sticky;
+   top: 0;
+   left: 0;
 
    display: flex;
    align-items: center;
    justify-content: space-between;
 
    color: $primary-color;
-   background: linear-gradient(180deg, rgba(0,63,107,1) 0%, 
-                              rgba(0,90,151,.75) 60%, 
+   background: linear-gradient(180deg, rgba(0,63,107,1) 18%, 
+                              rgb(33, 148, 225) 90%, 
                               rgba(239,239,239,1) 100%);
 
    &__logo {
       width: 20vw;
-      margin-top: var(--g-normal);
       padding-left: var(--g-normal);
-
-      align-self: flex-start;
       color: var(--base-color);
       
       &--image {
