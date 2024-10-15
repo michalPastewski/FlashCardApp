@@ -1,12 +1,14 @@
 import { useRef } from 'react';
+import { useData } from '../../contexts/DataProvider';
 import './topBar.style.scss';
 
 export const TopBarSearch = () => {
-  // const searchInput = useRef();
+  const { wordsCollection, setWordsCollection, filterWordsData } = useData();
+  const searchInput = useRef();
 
-  // const handleOnChange = () => {
-  //   console.log(searchInput);
-  // };
+  const handleOnChange = () => {
+    filterWordsData(searchInput.current.value);
+  };
 
   return (
     <input
@@ -14,8 +16,8 @@ export const TopBarSearch = () => {
       placeholder="search"
       name="top-search"
       className="top__bar--input"
-      // ref={searchInput}
-      // onChange={() => handleOnChange()}
+      ref={searchInput}
+      onChange={() => handleOnChange()}
     />
   );
 };

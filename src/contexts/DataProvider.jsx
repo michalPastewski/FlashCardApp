@@ -8,9 +8,11 @@ export const useData = () => useContext(DataContext);
 export const DataProvider = ({ children }) => {
   const { session } = useAuth();
   const [wordsCollection, setWordsCollection] = useState([]);
+  const [wordsData, setWordsData] = useState([]);
 
   const getWordsCollection = async () => {
     await userWordsData.select().then(({ data }) => {
+      setWordsData(data);
       setWordsCollection(data);
     });
   };
@@ -52,16 +54,31 @@ export const DataProvider = ({ children }) => {
     }
   };
 
+  const filterWordsData = (filterEntry) => {
+    const filterWords = wordsData.filter(
+      (item) =>
+        item.word.includes(filterEntry) ||
+        item.translation.includes(filterEntry)
+    );
+    console.log('FILTER', wordsData, filterWords, filterEntry);
+    return !filterEntry
+      ? setWordsCollection(wordsData)
+      : setWordsCollection(filterWords);
+  };
+
   useEffect(() => {
     if (session) {
       getWordsCollection();
     } else {
       setWordsCollection([]);
     }
+
+    filterWordsData();
   }, [session]);
 
   const value = {
     wordsCollection,
+    filterWordsData,
     setWordsCollection,
     addNewWord,
     updateWordData,
