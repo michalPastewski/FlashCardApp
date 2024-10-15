@@ -1,11 +1,13 @@
 @use '../../constant/variables.scss' as *;
 .words__section {
-   width: 100%;
+   width: 95vw;
+   margin: 0 auto;
    padding: var(--g-extra-large) var(--g-medium);
 
    display:grid;
-   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+   grid-template-columns: repeat(auto-fit, minmax(auto, 230px));
    gap: var(--g-extra-large);
+   justify-content: center;
 }
 
 .word {

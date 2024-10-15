@@ -60,7 +60,7 @@ export const DataProvider = ({ children }) => {
         item.word.includes(filterEntry) ||
         item.translation.includes(filterEntry)
     );
-    console.log('FILTER', wordsData, filterWords, filterEntry);
+
     return !filterEntry
       ? setWordsCollection(wordsData)
       : setWordsCollection(filterWords);
