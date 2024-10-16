@@ -73,8 +73,6 @@ export const DataProvider = ({ children }) => {
     } else {
       setWordsCollection([]);
     }
-
-    filterWordsData();
   }, [session]);
 
   const value = {

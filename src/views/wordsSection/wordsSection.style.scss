@@ -1,15 +1,48 @@
 @use '../../constant/variables.scss' as *;
+
 .words__section {
    width: 95vw;
    margin: 0 auto;
    width: 95vw;
    margin: 0 auto;
-   padding: var(--g-extra-large) var(--g-medium);
+   
 
-   display:grid;
-   grid-template-columns: repeat(auto-fit, minmax(auto, 237px));
-   gap: var(--g-extra-large);
-   justify-content: center;
+   &__set-order {
+      width: 100%;
+      padding-top: var(--g-small);
+      display: flex;
+      justify-content: end;
+
+      color: var(--primary-color);
+
+      &--select {
+         outline: none;
+         border-radius:  var(--border-radius);
+         border-color: var(--primary-color);
+         
+         text-align: center;
+         color: var(--primary-color);
+      }
+   
+      &--label{
+         text-align: center;
+      }
+   }
+
+   &__list {
+      padding: var(--g-extra-large) var(--g-medium);
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(auto, 237px));
+      gap: var(--g-extra-large);
+      justify-content: center;
+   }
+}
+
+.select__wrapper {
+   width: 80px;
+   display: flex;
+   flex-direction: column;
+   font-size: var(--f-small);
 }
 
 .word {
