@@ -7,14 +7,10 @@ import './wordsSection.style.scss';
 export const WordSection = () => {
   const [sortOrder, setSortOrder] = useState('newest');
 
-  useEffect(() => {
-    console.log(sortOrder)
-  }, [sortOrder])
-
   return (
     <article className="words__section">
       <WordSectionHeader handleSortOrder={setSortOrder} />
-      <WordList sortOrder={sortOrder}/>
+      <WordList sortOrder={sortOrder} />
     </article>
   );
 };
