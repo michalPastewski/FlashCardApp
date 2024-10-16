@@ -3,8 +3,7 @@ import { useData } from '../../contexts/DataProvider';
 import './topBar.style.scss';
 
 export const TopBarSearch = () => {
-  //TODO: remove unused properties
-  const { wordsCollection, setWordsCollection, filterWordsData } = useData();
+  const { filterWordsData } = useData();
   const searchInput = useRef();
 
   const handleOnChange = () => {

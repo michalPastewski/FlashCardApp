@@ -1,8 +1,6 @@
-import { useState } from 'react';
 import './wordsSection.style.scss';
 
-export const WordSectionHeader = ({handleSortOrder}) => {
-
+export const WordSectionHeader = ({ handleSortOrder }) => {
   const handleOnChange = (e) => {
     handleSortOrder(e.target.value);
   };

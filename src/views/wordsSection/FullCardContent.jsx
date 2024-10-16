@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import expandArrow from '../../assets/arrow-down-sign-navigate.png';
-import { Button } from '../../components/Button';
 import { EditFullCardView } from './EditFullCardView';
 import { FullCardContentNav } from './FullCardContentNav';
 
