@@ -25,7 +25,9 @@ export const TopNav = () => {
             setAddForm(true);
           }}
         />
-        <Link to={'/learn'} className="button primary-button normal-button">
+        <Link
+          to={'/#'}
+          className="button primary-button normal-button disabled">
           <span>learn</span>
         </Link>
         <Button label="sign out" onClick={onSignOut} appearance="primary" />

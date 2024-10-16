@@ -16,9 +16,7 @@
    &:active {
       background-color: var(--primary-color);
    }
-   &:disabled {
-      background-color: #E8E8E8; 
-      border-color: #aeb1b3;
+   &.disabled {
       color:#aeb1b3;
    }
 
